@@ -22,6 +22,8 @@ const Base = new Schema(
       match: reMatch,
     },
     age: { type: Number, required: [true, "Age is required."] },
+    phoneNumber: { type: Number, required: true },
+    email: { type: String },
     createdOn: { type: Date, default: Date.now() },
     isActive: { type: Boolean, default: true },
     userRef: { type: Schema.Types.ObjectId, ref: "User" },

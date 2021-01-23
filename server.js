@@ -13,12 +13,13 @@ const app = express();
 // Sets up Morgan tool
 app.use(morgan("tiny"));
 
-// Sets up the Express app to handle data parsing and cookie parsing
+// Sets up the Express app to handle data parsing
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
 // Addn'l Middleware (something that is executed when everything comes in...)
 // =============================================================
+// Middleware if lands on unknown route
 app.use((req, res, next) => {
   const err = new Error("Page Not Found!");
   err.status = 404;
@@ -36,7 +37,7 @@ app.use((err, req, res, next) => {
 });
 
 // Sets up the MongoDB / Mongoose connection
-mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/profiles", {
+mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/project3", {
   useNewUrlParser: true,
   useUnifiedTopology: true,
   useCreateIndex: true,

@@ -1,6 +1,7 @@
 module.exports = {
-  Profile: require("./base.model"),
-  Athlete: require("./athlete.model"),
-  Student: require("./student.model"),
-  Military: require("./military.model"),
+  UserModel: require("./user.model"),
+  ProfileModel: require("./base.model"),
+  AthleteModel: require("./athlete.model"),
+  StudentModel: require("./student.model"),
+  CadetModel: require("./cadet.model"),
 };

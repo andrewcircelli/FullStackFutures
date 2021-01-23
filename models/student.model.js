@@ -5,8 +5,14 @@ const Profile = require("./base.model");
 const studentSchema = new Schema({
   university: { type: String, required: true },
   achievements: { type: Array, required: true },
+  GPA: { type: Number },
+  SAT: { type: Number },
+  ACT: { type: Number },
+  extracurriculars: { type: String },
+  priorWorkExperience: { type: Array },
+  graduationYear: { type: Number },
 });
 
-const Student = Profile.discriminator("Student", studentSchema);
+const StudentModel = Profile.discriminator("Student", studentSchema);
 
-module.exports = Student;
+module.exports = StudentModel;

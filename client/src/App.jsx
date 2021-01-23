@@ -3,6 +3,7 @@ import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import Header from "./components/Header";
 import Footer from "./components/Footer"
 import Button from "./components/Button";
+import AthleteProfileCard from "./components/AthleteProfileCard"
 import Display from "./components/Display";
 import PageNotFound from "./components/PageNotFound";
 // import Store into this component
@@ -16,7 +17,7 @@ function App() {
         <Header />
         <Switch>
           <Route exact path={"/"}>
-            {<h1>Hello from Project 3!</h1>}
+            <AthleteProfileCard />
           </Route>
           <Route exact path="/button">
             <Button onClickFunction={incrementCounter}/>

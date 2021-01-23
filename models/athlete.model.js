@@ -4,15 +4,13 @@ const Schema = mongoose.Schema;
 const Profile = require("./base.model");
 
 const athleteSchema = new Schema({
-  primarySport: {
+  sport: {
     type: String,
-    required: [true, "Primary sport is required."],
+    required: [true, "Sport is required."],
   },
-  secondarySport: { type: String },
   position: { type: String },
   height: { type: Number, required: true },
   weight: { type: Number, required: true },
-  graduationYear: { type: Number },
   achievements: { type: Array },
 });
 

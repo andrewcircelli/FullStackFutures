@@ -1,1 +1,1 @@
-// athlete profile form and submit button
+// athlete page includes profile form and submit button

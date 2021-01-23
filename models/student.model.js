@@ -8,9 +8,8 @@ const studentSchema = new Schema({
   GPA: { type: Number },
   SAT: { type: Number },
   ACT: { type: Number },
-  extracurriculars: { type: String },
+  extracurriculars: { type: Array },
   priorWorkExperience: { type: Array },
-  graduationYear: { type: Number },
 });
 
 const StudentModel = Profile.discriminator("Student", studentSchema);

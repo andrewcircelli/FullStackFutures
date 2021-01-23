@@ -1,0 +1,18 @@
+const mongoose = require("mongoose");
+const Schema = mongoose.Schema;
+const Profile = require("./base.model");
+
+const studentSchema = new Schema({
+  university: { type: String, required: true },
+  achievements: { type: Array, required: true },
+  GPA: { type: Number },
+  SAT: { type: Number },
+  ACT: { type: Number },
+  extracurriculars: { type: String },
+  priorWorkExperience: { type: Array },
+  graduationYear: { type: Number },
+});
+
+const StudentModel = Profile.discriminator("Student", studentSchema);
+
+module.exports = StudentModel;

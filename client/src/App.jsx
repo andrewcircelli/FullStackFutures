@@ -7,6 +7,8 @@ import Display from "./components/Display";
 import PageNotFound from "./components/PageNotFound";
 // import Store into this component
 
+console.log(process.env.REACT_APP_GOOGLE_API_KEY)
+
 function App() {
   const [counter, setCounter] = useState(8);
   const incrementCounter = () => setCounter(counter + 1);

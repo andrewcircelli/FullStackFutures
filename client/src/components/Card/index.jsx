@@ -6,12 +6,14 @@ export default function FrontCard({flipCard}) {
     <Card style={{ width: '18rem' }}>
       <Card.Img variant="top" src="" />
       <Card.Body>
-        <Card.Title>Front Card Title</Card.Title>
+        <Card.Title>Andrew Circelli</Card.Title>
         <Card.Text>
-          Some quick example text to build on the card title and make up the bulk of
-          the card's content.
+          Athlete Profile
         </Card.Text>
-        <Button onClick={flipCard} variant="primary">Flip</Button>
+        <Card.Text>
+          Summary of some of the information that is in the database.
+        </Card.Text>
+        <Button onClick={flipCard} variant="dark">Click to Flip</Button>
       </Card.Body>
     </Card>
   )

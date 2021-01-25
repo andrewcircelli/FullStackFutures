@@ -17,7 +17,7 @@ class AthleteProfileCard extends React.Component {
  
   render() {
     return (
-      <ReactCardFlip isFlipped={this.state.isFlipped} flipDirection="vertical">
+      <ReactCardFlip isFlipped={this.state.isFlipped} flipDirection="horizontal">
         {/* <YOUR_FRONT_COMPONENT> */}
           <div>
             This is the front of the card.

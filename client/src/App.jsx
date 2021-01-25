@@ -1,27 +1,22 @@
-import React, { useState } from "react";
+import React from "react";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
-import Header from "./components/Header";
+import Nav from "./components/Nav";
 import Footer from "./components/Footer"
-import Button from "./components/Button";
 import AthleteProfileCard from "./components/AthleteProfileCard"
-import Display from "./components/Display";
 import PageNotFound from "./components/PageNotFound";
 // import Store into this component
 
 function App() {
-  const [counter, setCounter] = useState(8);
-  const incrementCounter = () => setCounter(counter + 1);
   return (
     <Router>
       <div>
-        <Header />
+        <Nav />
         <Switch>
           <Route exact path={"/"}>
-            <AthleteProfileCard />
+            My React App
           </Route>
-          <Route exact path="/button">
-            <Button onClickFunction={incrementCounter}/>
-            <Display message={counter}/>
+          <Route exact path="/profiles">
+            <AthleteProfileCard />
           </Route>
           <Route>
             <PageNotFound />

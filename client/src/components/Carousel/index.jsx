@@ -1,4 +1,6 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
+import API from "../../utils/API"
+import AthleteProfileCard from "../AthleteProfileCard";
 import Carousel from "react-multi-carousel";
 import "react-multi-carousel/lib/styles.css";
 
@@ -21,7 +23,17 @@ const responsive = {
   }
 };
 
-export default function ProfileCarousel({deviceType, children}) {
+export default function ProfileCarousel({deviceType}) {
+  const [ profiles, setProfiles ] = useState([])
+
+  useEffect( ()=> {
+    API.getProfile().then((profileData) => {
+      console.log(profileData);
+      setProfiles(profileData);
+    });
+  }, []);
+
+
   return (
     <Carousel
       partialVisbile
@@ -42,8 +54,11 @@ export default function ProfileCarousel({deviceType, children}) {
       dotListClass="custom-dot-list-style"
       itemClass="carousel-item-padding-10-px"
     >
-      {children}
+      {/* {profiles.map((profile, index) => (
+        <AthleteProfileCard key={index} profile={profile} />
+      ))}; */}
+      <AthleteProfileCard />
+
     </Carousel>
   )
-
 }

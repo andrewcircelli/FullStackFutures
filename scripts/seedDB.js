@@ -98,7 +98,7 @@ const createAthlete = () => db.AthleteModel.create(profilesSeed[2]);
 //   });
 
 function myFunc2() {
-  db.StudentModel.find()
+  db.ProfileModel.find()
     .sort({ createdOn: "1" })
     .exec()
     .then((profileDocs) => console.log(profileDocs))

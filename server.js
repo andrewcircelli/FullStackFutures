@@ -20,11 +20,11 @@ app.use(express.urlencoded({ extended: true }));
 // Routes
 // =============================================================
 const profileRouter = require("./routes/profile-routes");
-const adminRouter = require("./routes/admin-routes");
-const indexRouter = require("./routes/index-routes");
+// const adminRouter = require("./routes/admin-routes");
+// const indexRouter = require("./routes/index-routes");
 
 // app.use("/admin", adminRouter);
-app.use("/profiles", profileRouter);
+app.use("/api/profiles", profileRouter);
 // app.use("/", indexRouter);
 
 // Addn'l Middleware (something that is executed when everything comes in...)

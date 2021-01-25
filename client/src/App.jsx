@@ -3,7 +3,6 @@ import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import { Container } from "./components/Grid"
 import Header from "./components/Header";
 import Footer from "./components/Footer"
-import AthleteProfileCard from "./components/AthleteProfileCard"
 import PageNotFound from "./components/PageNotFound";
 import ProfileCarousel from "./components/Carousel";
 
@@ -22,17 +21,9 @@ function App() {
           <Route exact path={"/"}>
             My React App
           </Route>
-          <Route exact path="/profiles">
+          <Route exact path="/api/profiles">
             <Container>
                 <ProfileCarousel deviceType={"desktop"}>
-                  <AthleteProfileCard />
-                  <AthleteProfileCard />
-                  <AthleteProfileCard />
-                  <AthleteProfileCard />
-                  <AthleteProfileCard />
-                  <AthleteProfileCard />
-                  <AthleteProfileCard />
-                  <AthleteProfileCard />
                 </ProfileCarousel>
             </Container>
           </Route>

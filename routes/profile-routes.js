@@ -1,6 +1,6 @@
 const express = require("express");
 const profileRouter = express.Router();
-const { db } = require("../models");
+const db = require("../models");
 
 function router() {
   profileRouter
@@ -10,7 +10,7 @@ function router() {
       db.ProfileModel.find()
         .sort({ createdOn: "1" })
         .exec()
-        .then((profileDocs) => console.log(profileDocs))
+        .then((profileDocs) => res.status(200).send(profileDocs))
         .catch((err) => {
           res.status(422).json({
             message: "Error finding the profiles",
@@ -85,4 +85,4 @@ function router() {
   return profileRouter;
 }
 
-module.exports = router;
+module.exports = router();

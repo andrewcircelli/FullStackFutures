@@ -1,10 +1,12 @@
 import React from "react";
 import { Card, Button } from "react-bootstrap";
+import logo from "./athlete.png"
 
-export default function FrontCard({flipCard}) {
+
+export default function FrontCard({flipCard, profile}) {
   return (
     <Card style={{ width: '18rem' }}>
-      <Card.Img variant="top" src="" />
+      <Card.Img variant="top" src={logo} />
       <Card.Body>
         <Card.Title>Andrew Circelli</Card.Title>
         <Card.Text>

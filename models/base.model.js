@@ -22,7 +22,11 @@ const Base = new Schema(
       match: reMatch,
     },
     age: { type: Number, required: [true, "Age is required."] },
-    phoneNumber: { type: Number, required: true },
+    graduationYear: { type: Number },
+    phoneNumber: {
+      type: Number,
+      required: [true, "Phone Number is required."],
+    },
     email: { type: String },
     createdOn: { type: Date, default: Date.now() },
     isActive: { type: Boolean, default: true },

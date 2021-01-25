@@ -1,1 +1,1 @@
-// student profile form and submit button
+// student page includes profile form and submit button

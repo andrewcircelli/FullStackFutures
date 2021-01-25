@@ -1,6 +1,7 @@
 import React from "react";
 import ReactCardFlip from "react-card-flip";
 import FrontCard from "../Card";
+import { FaFootballBall } from 'react-icons/fa';
 
 class AthleteProfileCard extends React.Component {
   constructor() {
@@ -22,13 +23,10 @@ class AthleteProfileCard extends React.Component {
           <div>
             <FrontCard flipCard={this.handleClick}/>
           </div>
- 
-        {/* <YOUR_BACK_COMPONENT> */}
           <div>
-            This is the back of the card.
-            <button onClick={this.handleClick}>Click to flip</button>
+            <FrontCard flipCard={this.handleClick}/>
+            <FaFootballBall />
           </div>
-        {/* </YOUR_BACK_COMPONENT> */}
       </ReactCardFlip>
     )
   }

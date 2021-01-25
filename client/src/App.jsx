@@ -1,6 +1,6 @@
 import React from "react";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
-import Nav from "./components/Nav";
+import Header from "./components/Header";
 import Footer from "./components/Footer"
 import AthleteProfileCard from "./components/AthleteProfileCard"
 import PageNotFound from "./components/PageNotFound";
@@ -12,7 +12,7 @@ function App() {
   return (
     <Router>
       <div>
-        <Nav />
+        <Header />
         <Switch>
           <Route exact path={"/"}>
             My React App

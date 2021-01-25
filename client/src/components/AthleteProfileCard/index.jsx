@@ -1,5 +1,6 @@
 import React from "react";
-import ReactCardFlip from 'react-card-flip';
+import ReactCardFlip from "react-card-flip";
+import FrontCard from "../Card";
 
 class AthleteProfileCard extends React.Component {
   constructor() {
@@ -17,13 +18,10 @@ class AthleteProfileCard extends React.Component {
  
   render() {
     return (
-      <ReactCardFlip isFlipped={this.state.isFlipped} flipDirection="horizontal">
-        {/* <YOUR_FRONT_COMPONENT> */}
+      <ReactCardFlip isFlipped={this.state.isFlipped} flipDirection="vertical">
           <div>
-            This is the front of the card.
-            <button onClick={this.handleClick}>Click to flip</button>
+            <FrontCard flipCard={this.handleClick}/>
           </div>
-        {/* </YOUR_FRONT_COMPONENT> */}
  
         {/* <YOUR_BACK_COMPONENT> */}
           <div>

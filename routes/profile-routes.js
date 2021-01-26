@@ -10,7 +10,7 @@ function router() {
       db.ProfileModel.find()
         .sort({ createdOn: "1" })
         .exec()
-        .then((profileDocs) => res.status(200).send(profileDocs))
+        .then((profileDocs) => res.status(200).json(profileDocs))
         .catch((err) => {
           res.status(422).json({
             message: "Error finding the profiles",

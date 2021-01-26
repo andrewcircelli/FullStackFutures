@@ -8,9 +8,9 @@ export default function FrontCard({flipCard, profile}) {
     <Card style={{ width: '18rem' }}>
       <Card.Img variant="top" src={logo} />
       <Card.Body>
-        <Card.Title>Andrew Circelli</Card.Title>
+        <Card.Title>{profile.firstName}</Card.Title>
         <Card.Text>
-          Athlete Profile
+          {profile.profileType} 
         </Card.Text>
         <Card.Text>
           Summary of some of the information that is in the database.

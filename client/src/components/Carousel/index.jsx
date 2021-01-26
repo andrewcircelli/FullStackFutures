@@ -24,15 +24,14 @@ const responsive = {
 };
 
 export default function ProfileCarousel({deviceType}) {
-  const [ profiles, setProfiles ] = useState([])
+  const [ profiles, setProfiles ] = useState([]);
 
   useEffect( ()=> {
     API.getProfile().then((profileData) => {
-      console.log(profileData);
-      setProfiles(profileData);
+      console.log("From Caraousel", profileData.data);
+      setProfiles(profileData.data);
     });
   }, []);
-
 
   return (
     <Carousel
@@ -54,10 +53,9 @@ export default function ProfileCarousel({deviceType}) {
       dotListClass="custom-dot-list-style"
       itemClass="carousel-item-padding-10-px"
     >
-      {/* {profiles.map((profile, index) => (
-        <AthleteProfileCard key={index} profile={profile} />
-      ))}; */}
-      <AthleteProfileCard />
+      { profiles.map((profile) => {
+      return <AthleteProfileCard profile={profile}/> 
+      })}
 
     </Carousel>
   )

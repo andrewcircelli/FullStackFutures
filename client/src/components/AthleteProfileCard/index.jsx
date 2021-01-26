@@ -1,6 +1,6 @@
 import React from "react";
 import ReactCardFlip from "react-card-flip";
-import FrontCard from "../Card";
+import FrontCard from "../FrontCard";
 import { FaFootballBall } from 'react-icons/fa';
 
 class AthleteProfileCard extends React.Component {
@@ -12,6 +12,10 @@ class AthleteProfileCard extends React.Component {
     this.handleClick = this.handleClick.bind(this);
   }
 
+  componentDidMount() {
+    console.log("dsfdas", this.props.profile);
+  };
+
   handleClick(e) {
     e.preventDefault();
     this.setState(prevState => ({ isFlipped: !prevState.isFlipped }));
@@ -19,15 +23,16 @@ class AthleteProfileCard extends React.Component {
  
   render() {
     return (
-      <ReactCardFlip isFlipped={this.state.isFlipped} flipDirection="vertical">
-          <div>
-            <FrontCard profile={this.props.profile} flipCard={this.handleClick}/>
-          </div>
-          <div>
-            <FrontCard flipCard={this.handleClick}/>
-            <FaFootballBall />
-          </div>
-      </ReactCardFlip>
+      <h1>{this.props.profile.firstName}</h1>
+      // <ReactCardFlip isFlipped={this.state.isFlipped} flipDirection="vertical">
+      //     <div>
+      //       <FrontCard profile={this.props.profile} flipCard={this.handleClick}/>
+      //     </div>
+      //     <div>
+      //       <FrontCard flipCard={this.handleClick}/>
+      //       <FaFootballBall />
+      //     </div>
+      // </ReactCardFlip>
     )
   }
 }

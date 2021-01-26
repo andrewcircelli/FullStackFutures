@@ -8,7 +8,7 @@ import ProfileCarousel from "./components/Carousel";
 
 // import Store into this component
 
-console.log(process.env.REACT_APP_GOOGLE_API_KEY)
+// console.log(process.env.REACT_APP_GOOGLE_API_KEY)
 
 function App() {
   return (
@@ -23,8 +23,7 @@ function App() {
           </Route>
           <Route exact path="/api/profiles">
             <Container>
-                <ProfileCarousel deviceType={"desktop"}>
-                </ProfileCarousel>
+                <ProfileCarousel deviceType={"desktop"} />
             </Container>
           </Route>
           <Route>

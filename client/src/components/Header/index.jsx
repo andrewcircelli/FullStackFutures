@@ -9,6 +9,7 @@ export default function Header() {
       <Link to="/">
         <img alt="" src="" />
       </Link>
+      <Link to= "/student/newprofile">Add Profile</Link>
       <Nav />
     </header>
   );

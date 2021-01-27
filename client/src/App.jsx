@@ -5,6 +5,8 @@ import Header from "./components/Header";
 import Footer from "./components/Footer"
 import PageNotFound from "./components/PageNotFound";
 import ProfileCarousel from "./components/Carousel";
+import Profile from "./pages/Profiles";
+import Jumbotron from "./components/Jumbotron";
 
 // import Store into this component
 
@@ -16,10 +18,14 @@ function App() {
       <div>
         <Container>
           <Header />
+      
         </Container>
         <Switch>
           <Route exact path={"/"}>
             My React App
+          </Route>
+          <Route exact path={"/student/newprofile"}>
+           <Profile />
           </Route>
           <Route exact path="/api/profiles">
             <Container>

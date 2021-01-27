@@ -13,7 +13,7 @@ class AthleteProfileCard extends React.Component {
   }
 
   componentDidMount() {
-    console.log("dsfdas", this.props.profile);
+    console.log("From AthleteProfileCard", this.props.profile);
   };
 
   handleClick(e) {
@@ -23,16 +23,15 @@ class AthleteProfileCard extends React.Component {
  
   render() {
     return (
-      <h1>{this.props.profile.firstName}</h1>
-      // <ReactCardFlip isFlipped={this.state.isFlipped} flipDirection="vertical">
-      //     <div>
-      //       <FrontCard profile={this.props.profile} flipCard={this.handleClick}/>
-      //     </div>
-      //     <div>
-      //       <FrontCard flipCard={this.handleClick}/>
-      //       <FaFootballBall />
-      //     </div>
-      // </ReactCardFlip>
+      <ReactCardFlip isFlipped={this.state.isFlipped} flipDirection="vertical">
+          <div>
+            <FrontCard profile={this.props.profile} flipCard={this.handleClick}/>
+          </div>
+          <div>
+            <FrontCard profile={this.props.profile} flipCard={this.handleClick}/>
+            <FaFootballBall />
+          </div>
+      </ReactCardFlip>
     )
   }
 }

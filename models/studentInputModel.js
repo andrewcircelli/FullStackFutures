@@ -9,7 +9,7 @@ const baseOptions = {
 // Configure match built-in validator condition
 const reMatch = /[a-zA-z]/;
 
-const Base = new Schema(
+const studentInputModel = new Schema(
   {
     firstName: {
       type: String,
@@ -28,6 +28,13 @@ const Base = new Schema(
       required: [true, "Phone Number is required."],
     },
     email: { type: String },
+    university: {type: String},
+    achievements: [{type: String}],
+    GPA: {type: Number},
+    SAT: {type: Number},
+    ACT: {type: Number},
+    extracurriculars: [{type: String}],
+    priorWorkExperience: [{type: String}],
     createdOn: { type: Date, default: Date.now() },
     isActive: { type: Boolean, default: true },
     userRef: { type: Schema.Types.ObjectId, ref: "User" },

@@ -1,15 +1,16 @@
 import React from "react";
-import { useStoreContext } from "../../utils/GlobalState";
+import { NavLink } from "react-router-dom";
+
+const activeStyle = {
+  color: "blue",
+};
 
 function Nav() {
-  const [store] = useStoreContext();
-
   return (
-    <nav className="navbar navbar-expand-lg navbar-light bg-light">
-      <a className="navbar-brand" href="/">
-        Your personal CMS
-      </a>
-      {store.loading ? <a className="navbar-brand ml-auto">Loading...</a> : <></>}
+    <nav>
+      <NavLink to="/api/profiles" activeStyle={activeStyle}>Profiles</NavLink>
+      <NavLink to="/api/aboutus" activeStyle={activeStyle}>About Us</NavLink>
+      <NavLink to="/api/other" activeStyle={activeStyle}>Other Link</NavLink>
     </nav>
   );
 }

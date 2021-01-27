@@ -17,6 +17,16 @@ app.use(morgan("tiny"));
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
+// Routes
+// =============================================================
+const profileRouter = require("./routes/profile-routes");
+// const adminRouter = require("./routes/admin-routes");
+// const indexRouter = require("./routes/index-routes");
+
+// app.use("/admin", adminRouter);
+app.use("/api/profiles", profileRouter);
+// app.use("/", indexRouter);
+
 // Addn'l Middleware (something that is executed when everything comes in...)
 // =============================================================
 // Middleware if lands on unknown route

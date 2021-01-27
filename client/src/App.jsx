@@ -1,32 +1,44 @@
-import React, { useState } from "react";
+import React from "react";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
+import { Container } from "./components/Grid"
 import Header from "./components/Header";
 import Footer from "./components/Footer"
-import Button from "./components/Button";
-import Display from "./components/Display";
 import PageNotFound from "./components/PageNotFound";
+import ProfileCarousel from "./components/Carousel";
+import Profile from "./pages/Profiles";
+import Jumbotron from "./components/Jumbotron";
+
 // import Store into this component
 
+// console.log(process.env.REACT_APP_GOOGLE_API_KEY)
+
 function App() {
-  const [counter, setCounter] = useState(8);
-  const incrementCounter = () => setCounter(counter + 1);
   return (
     <Router>
       <div>
-        <Header />
+        <Container>
+          <Header />
+      
+        </Container>
         <Switch>
           <Route exact path={"/"}>
-            {<h1>Hello from Project 3!</h1>}
+            My React App
           </Route>
-          <Route exact path="/button">
-            <Button onClickFunction={incrementCounter}/>
-            <Display message={counter}/>
+          <Route exact path={"/student/newprofile"}>
+           <Profile />
+          </Route>
+          <Route exact path="/api/profiles">
+            <Container>
+                <ProfileCarousel />
+            </Container>
           </Route>
           <Route>
             <PageNotFound />
           </Route>
         </Switch>
-        <Footer />
+        <Container>
+          <Footer />
+        </Container>
       </div>
     </Router>
   );

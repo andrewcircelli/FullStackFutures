@@ -1,27 +1,16 @@
 import React from "react";
-import { Link, NavLink } from "react-router-dom";
+import { Link } from "react-router-dom";
+import Nav from "../Nav"
 
-const activeStyle = {
-  color: "blue",
-};
 
 export default function Header() {
   return (
     <header>
-      <nav>
-        <ul>
-          <li>
-            <Link to="/">
-              <img alt="" src="" />
-            </Link>
-          </li>
-          <li>
-            <NavLink activeStyle={activeStyle} to="/link">
-              Link
-            </NavLink>
-          </li>
-        </ul>
-      </nav>
+      <Link to="/">
+        <img alt="" src="" />
+      </Link>
+      <Link to= "/student/newprofile">Add Profile</Link>
+      <Nav />
     </header>
   );
 }

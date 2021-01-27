@@ -23,7 +23,7 @@ function App() {
           </Route>
           <Route exact path="/api/profiles">
             <Container>
-                <ProfileCarousel deviceType={"desktop"} />
+                <ProfileCarousel />
             </Container>
           </Route>
           <Route>

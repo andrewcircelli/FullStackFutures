@@ -76,9 +76,9 @@ const createCadet = () => db.CadetModel.create(profilesSeed[1]);
 // create document on Athlete model in Profiles collection
 const createAthlete = () => db.AthleteModel.create(profilesSeed[2]);
 
-// Promise.all([createStudent(), createCadet(), createAthlete()])
-//   .then((dbModel) => console.log(dbModel))
-//   .catch((err) => console.log(err));
+Promise.all([createStudent(), createCadet(), createAthlete()])
+  .then((dbModel) => console.log(dbModel))
+  .catch((err) => console.log(err));
 
 // db.ProfileModel.findOne({ profileType: "Student" })
 //   .populate("userRef")
@@ -110,4 +110,4 @@ function myFunc2() {
     });
 }
 
-myFunc2();
+// myFunc2();

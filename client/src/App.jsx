@@ -4,7 +4,7 @@ import { Container } from "./components/Grid"
 import Header from "./components/Header";
 import Footer from "./components/Footer"
 import PageNotFound from "./components/PageNotFound";
-import ProfileCarousel from "./components/Carousel";
+import ProfileCarousel from "./components/Carousel/indexFlick";
 
 // import Store into this component
 

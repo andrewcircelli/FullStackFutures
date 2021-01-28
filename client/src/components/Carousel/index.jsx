@@ -8,7 +8,6 @@ const responsive = {
   desktop: {
     breakpoint: { max: 3000, min: 1024 },
     items: 3,
-    slidesToSlide: 3, // optional, default to 1.
     paritialVisibilityGutter: 60
   },
   tablet: {
@@ -53,8 +52,8 @@ export default function ProfileCarousel({deviceType}) {
       dotListClass="custom-dot-list-style"
       itemClass="carousel-item-padding-10-px"
     >
-      { profiles.map((profile) => {
-      return <AthleteProfileCard profile={profile}/> 
+      { profiles.map((profile, index) => {
+      return <AthleteProfileCard key={index} profile={profile}/> 
       })}
 
     </Carousel>

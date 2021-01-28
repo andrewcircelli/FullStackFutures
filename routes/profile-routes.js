@@ -20,19 +20,22 @@ function router() {
     });
 
   profileRouter
-    .route("/student")
+    .route("/student/create")
     // GET: get all student profile documents in profiles collection
     .get((req, res) => {
       db.ProfileModel.find({ profileType: "student" }, (err, studentDocs) => {
         if (err) {
           return res.status(400).json(err);
         }
+        console.log(studentDocs);
         res.status(200).send(studentDocs);
       });
     })
     // POST: post a new student profile document
     .post((req, res) => {
       const dbStudent = new db.StudentModel(req.body);
+      console.log(req.body);
+
       dbStudent.save((err, studentDoc) => {
         if (err) {
           return res.status(400).json(err);

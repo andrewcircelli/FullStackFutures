@@ -24,9 +24,15 @@ function App() {
           <Route exact path={"/"}>
             My React App
           </Route>
-          <Route exact path={"/student/newprofile"}>
+          <Route exact path={"/api/profiles/student/create"}>
            <Profile />
           </Route>
+          {/* <Route exact path={"/api/profiles/cadet/create"}>
+           <CadetProfile />
+          </Route>
+          <Route exact path={"/api/profiles/athlete/create"}>
+           <AthleteProfile />
+          </Route> */}
           <Route exact path="/api/profiles">
             <Container>
                 <ProfileCarousel />

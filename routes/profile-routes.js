@@ -18,7 +18,6 @@ function router() {
           });
         });
     });
-
   profileRouter
     .route("/:profileType")
     // GET: get all (profileType) profile documents in profiles collection

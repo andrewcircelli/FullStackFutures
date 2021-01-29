@@ -23,6 +23,7 @@ class Profile extends React.Component {
     event.preventDefault();
     console.log("State", this.state);
     API.saveProfile(this.state).then((studentProfile) => {
+      // will need to push this profile doc to logged in user
       console.log("From Profiles.js", studentProfile);
     });
   };

@@ -18,7 +18,7 @@ const API = {
   },
   // CREATEs a profile to the database
   saveProfile: function (profileData) {
-    return axios.post("/api/profiles/student", profileData);
+    return axios.post("/api/profiles/athlete", profileData);
   },
 };
 

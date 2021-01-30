@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import API from "../../utils/API";
-import AthleteProfileCard from "../AthleteProfileCard";
+import AthleteCard from "../AthleteCard";
 import Carousel from "react-multi-carousel";
 import "react-multi-carousel/lib/styles.css";
 import { useParams } from "react-router-dom";
@@ -63,7 +63,7 @@ export default function ProfileCarousel({ deviceType }) {
       itemClass="carousel-item-padding-40-px"
     >
       {profiles.map((profile, index) => {
-        return <AthleteProfileCard key={index} profile={profile} />;
+        return <AthleteCard key={index} profile={profile} />;
       })}
     </Carousel>
   );

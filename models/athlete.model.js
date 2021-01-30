@@ -14,6 +14,6 @@ const athleteSchema = new Schema({
   achievements: { type: Array },
 });
 
-const AthleteModel = Profile.discriminator("Athlete", athleteSchema);
+const AthleteModel = Profile.discriminator("athlete", athleteSchema);
 
 module.exports = AthleteModel;

@@ -1,46 +1,56 @@
 import React, { useEffect, useState } from "react";
-import API from "../../utils/API"
+import API from "../../utils/API";
 import AthleteProfileCard from "../AthleteProfileCard";
 import Carousel from "react-multi-carousel";
 import "react-multi-carousel/lib/styles.css";
+import { useParams } from "react-router-dom";
 
 const responsive = {
   desktop: {
     breakpoint: { max: 3000, min: 1024 },
     items: 3,
-    paritialVisibilityGutter: 60
+    slidesToSlide: 3, // optional, default to 1.
   },
   tablet: {
     breakpoint: { max: 1024, min: 464 },
     items: 2,
-    slidesToSlide: 2 // optional, default to 1.
+    slidesToSlide: 2, // optional, default to 1.
   },
   mobile: {
     breakpoint: { max: 464, min: 0 },
     items: 1,
-    slidesToSlide: 1 // optional, default to 1.
-  }
+    slidesToSlide: 1, // optional, default to 1.
+  },
 };
 
-export default function ProfileCarousel({deviceType}) {
-  const [ profiles, setProfiles ] = useState([]);
+export default function ProfileCarousel({ deviceType }) {
+  const [profiles, setProfiles] = useState([]);
+  const profileType = useParams();
 
-  useEffect( ()=> {
-    API.getProfile().then((profileData) => {
-      console.log("From Caraousel", profileData.data);
-      setProfiles(profileData.data);
-    });
-  }, []);
+  useEffect(() => {
+    if (profileType.profileType !== undefined) {
+      console.log("not undefined");
+      API.getProfilesByType(profileType.profileType).then((profileData) => {
+        console.log("From Caraousel", profileData.data);
+        setProfiles(profileData.data);
+      });
+    } else {
+      API.getProfiles().then((profileData) => {
+        console.log("From Caraousel", profileData.data);
+        setProfiles(profileData.data);
+      });
+    }
+  }, [profileType.profileType]);
 
   return (
     <Carousel
       partialVisbile
-      swipeable={false}
+      swipeable={true}
       draggable={false}
       showDots={true}
       responsive={responsive}
       // ssr={true} // means to render carousel on server-side.
-      infinite={true}
+      infinite={false}
       // autoPlay={deviceType !== "mobile" ? true : false}
       // autoPlaySpeed={5000}
       keyBoardControl={true}
@@ -50,12 +60,11 @@ export default function ProfileCarousel({deviceType}) {
       removeArrowOnDeviceType={["tablet", "mobile"]}
       deviceType={deviceType}
       dotListClass="custom-dot-list-style"
-      itemClass="carousel-item-padding-10-px"
+      itemClass="carousel-item-padding-40-px"
     >
-      { profiles.map((profile, index) => {
-      return <AthleteProfileCard key={index} profile={profile}/> 
+      {profiles.map((profile, index) => {
+        return <AthleteProfileCard key={index} profile={profile} />;
       })}
-
     </Carousel>
-  )
+  );
 }

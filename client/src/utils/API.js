@@ -1,21 +1,24 @@
 import axios from "axios";
 
 const API = {
-  // Gets all profiles
-  getProfile: function () {
+  // GETs all profiles
+  getProfiles: function () {
     return axios.get("/api/profiles");
   },
-  // Gets the profile with the given id
+  getProfilesByType: function (profileType) {
+    return axios.get("/api/profiles/" + profileType);
+  },
+  // GETs a profile with the given id
   getProfileById: function (id) {
     return axios.get("/api/profile/" + id);
   },
-  // Deletes the profile with the given id
+  // DELETEs a profile with the given id
   deleteProfileById: function (id) {
     return axios.delete("/api/profile/" + id);
   },
-  // Saves a post to the database
+  // CREATEs a profile to the database
   saveProfile: function (profileData) {
-    return axios.post("/api/profiles/student/create", profileData);
+    return axios.post("/api/profiles/student", profileData);
   },
 };
 

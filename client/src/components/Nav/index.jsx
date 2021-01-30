@@ -8,9 +8,24 @@ const activeStyle = {
 function Nav() {
   return (
     <nav>
-      <NavLink to="/api/profiles" activeStyle={activeStyle}>Profiles</NavLink>
-      <NavLink to="/api/aboutus" activeStyle={activeStyle}>About Us</NavLink>
-      <NavLink to="/api/other" activeStyle={activeStyle}>Other Link</NavLink>
+      <NavLink to="/profiles" activeStyle={activeStyle}>
+        Profiles
+      </NavLink>
+      <NavLink to="/profiles/student" activeStyle={activeStyle}>
+        Student Admin
+      </NavLink>
+      <NavLink to="/profiles/athlete" activeStyle={activeStyle}>
+        Athlete Admin
+      </NavLink>
+      <NavLink to="/profiles/cadet" activeStyle={activeStyle}>
+        Cadet Admin
+      </NavLink>
+      <NavLink to="/aboutus" activeStyle={activeStyle}>
+        About Us
+      </NavLink>
+      <NavLink to="/other" activeStyle={activeStyle}>
+        Other Link
+      </NavLink>
     </nav>
   );
 }

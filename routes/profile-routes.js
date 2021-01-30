@@ -26,17 +26,20 @@ function router() {
       req.profileType = profileType;
       switch (profileType) {
         case "student":
-          return (req.Model = db.StudentModel());
-        case "cadet":
-          return (req.Model = db.CadetModel());
+          req.Model = db.StudentModel;
+          break;
         case "athlete":
-          return (req.Model = db.AthleteModel());
+          req.Model = db.AthleteModel;
+          break;
+        case "cadet":
+          req.Model = db.CadetModel;
+          break;
       }
       next();
     })
     .get((req, res) => {
       const { profileType } = req;
-      db.ProfileModel.find({ profileType }, (err, docs) => {
+      db.ProfileModel.find({ profileType: profileType }, (err, docs) => {
         if (err) {
           return res.status(400).json(err);
         }
@@ -45,8 +48,7 @@ function router() {
     })
     // POST: post, create a new profile document based on req.Model
     .post((req, res) => {
-      const { Model } = req;
-      const dbModel = new Model(req.body);
+      const dbModel = new req.Model(req.body);
       dbModel.save((err, doc) => {
         if (err) {
           return res.status(400).json(err);

@@ -6,11 +6,7 @@ import Footer from "./components/Footer";
 import PageNotFound from "./components/PageNotFound";
 import ProfileCarousel from "./components/Carousel";
 import Profile from "./pages/Profiles";
-import Jumbotron from "./components/Jumbotron";
-
 // import Store into this component
-
-// console.log(process.env.REACT_APP_GOOGLE_API_KEY)
 
 function App() {
   return (
@@ -22,14 +18,21 @@ function App() {
         <main>
           <Switch>
             <Route exact path={"/"}>
-              My React App
-            </Route>
-            <Route exact path={"/api/profiles/student/create"}>
-              <Profile />
-            </Route>
-            <Route exact path="/api/profiles">
               <Container>
-                <ProfileCarousel />
+                <h1>My React App</h1>
+              </Container>
+            </Route>
+            <Route exact path={"/profiles/:profileType"}>
+              <Container>
+                <ProfileCarousel deviceType={"desktop"} />
+              </Container>
+              <Container>
+                <Profile />
+              </Container>
+            </Route>
+            <Route exact path={"/profiles"}>
+              <Container>
+                <ProfileCarousel deviceType={"desktop"} />
               </Container>
             </Route>
             <Route>

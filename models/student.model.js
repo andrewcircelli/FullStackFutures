@@ -12,6 +12,6 @@ const studentSchema = new Schema({
   priorWorkExperience: { type: Array },
 });
 
-const StudentModel = Profile.discriminator("Student", studentSchema);
+const StudentModel = Profile.discriminator("student", studentSchema);
 
 module.exports = StudentModel;

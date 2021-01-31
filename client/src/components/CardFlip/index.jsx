@@ -1,7 +1,7 @@
 import React from "react";
 import ReactCardFlip from "react-card-flip";
 import FrontCard from "../FrontCard";
-import { FaFootballBall } from "react-icons/fa";
+import BackCard from "../BackCard";
 
 class AthleteCard extends React.Component {
   constructor(props) {
@@ -10,10 +10,6 @@ class AthleteCard extends React.Component {
       isFlipped: false,
     };
     this.handleClick = this.handleClick.bind(this);
-  }
-
-  componentDidMount() {
-    console.log("From AthleteProfileCard", this.props.profile);
   }
 
   handleClick(e) {
@@ -28,8 +24,7 @@ class AthleteCard extends React.Component {
           <FrontCard profile={this.props.profile} flipCard={this.handleClick} />
         </div>
         <div>
-          <FrontCard profile={this.props.profile} flipCard={this.handleClick} />
-          <FaFootballBall />
+          <BackCard profile={this.props.profile} flipCard={this.handleClick} />
         </div>
       </ReactCardFlip>
     );

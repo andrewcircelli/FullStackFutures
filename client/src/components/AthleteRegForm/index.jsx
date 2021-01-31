@@ -3,6 +3,7 @@ import { Form, Button, Fade } from "react-bootstrap";
 import API from "../../utils/API";
 
 class AthleteRegForm extends React.Component {
+  // need to reset state when the form is submitted
   state = {
     firstName: "",
     lastName: "",
@@ -19,10 +20,14 @@ class AthleteRegForm extends React.Component {
   };
   saveProfile = (event) => {
     event.preventDefault();
-    console.log("State", this.state);
-    API.saveProfile(this.state).then((studentProfile) => {
-      // will need to push this profile doc to logged in user
-      console.log("From Profiles.js", studentProfile);
+    API.saveProfile(this.props.profileType, this.state).then(
+      (studentProfile) => {
+        // will need to push this profile doc to logged in user
+        console.log("From Profiles.js", studentProfile);
+      }
+    );
+    this.setState({
+      open: false,
     });
   };
 
@@ -53,7 +58,6 @@ class AthleteRegForm extends React.Component {
                 name="firstName"
                 value={this.state.firstName}
                 onChange={this.handleInput}
-                placeholder="Enter Name"
               />
             </Form.Group>
 
@@ -64,7 +68,6 @@ class AthleteRegForm extends React.Component {
                 name="lastName"
                 value={this.state.lastName}
                 onChange={this.handleInput}
-                placeholder="Enter Name"
               />
             </Form.Group>
 
@@ -75,7 +78,6 @@ class AthleteRegForm extends React.Component {
                 name="age"
                 value={this.state.age}
                 onChange={this.handleInput}
-                placeholder="Enter Age"
               />
             </Form.Group>
 
@@ -86,7 +88,6 @@ class AthleteRegForm extends React.Component {
                 name="graduationYear"
                 value={this.state.graduationYear}
                 onChange={this.handleInput}
-                placeholder="Enter Graduation Year"
               />
             </Form.Group>
 
@@ -97,18 +98,16 @@ class AthleteRegForm extends React.Component {
                 name="phoneNumber"
                 value={this.state.phoneNumber}
                 onChange={this.handleInput}
-                placeholder="Enter Phone Number"
               />
             </Form.Group>
 
-            <Form.Group controlId="formBasicemail">
+            <Form.Group controlId="formBasicEmail">
               <Form.Label>email</Form.Label>
               <Form.Control
                 type="email"
                 name="email"
                 value={this.state.email}
                 onChange={this.handleInput}
-                placeholder="Enter email"
               />
             </Form.Group>
 
@@ -119,7 +118,6 @@ class AthleteRegForm extends React.Component {
                 name="sport"
                 value={this.state.sport}
                 onChange={this.handleInput}
-                placeholder="Enter sport"
               />
             </Form.Group>
 
@@ -130,7 +128,6 @@ class AthleteRegForm extends React.Component {
                 name="position"
                 value={this.state.position}
                 onChange={this.handleInput}
-                placeholder="Enter position"
               />
             </Form.Group>
 
@@ -141,7 +138,6 @@ class AthleteRegForm extends React.Component {
                 name="height"
                 value={this.state.height}
                 onChange={this.handleInput}
-                placeholder="Enter height"
               />
             </Form.Group>
 
@@ -152,18 +148,16 @@ class AthleteRegForm extends React.Component {
                 name="weight"
                 value={this.state.weight}
                 onChange={this.handleInput}
-                placeholder="Enter weight"
               />
             </Form.Group>
 
             <Form.Group controlId="formBasicText">
-              <Form.Label>Achievements\</Form.Label>
+              <Form.Label>Achievements</Form.Label>
               <Form.Control
                 type="text"
                 name="achievements"
                 value={this.state.achievements}
                 onChange={this.handleInput}
-                placeholder="Enter achievements"
               />
             </Form.Group>
 
@@ -174,7 +168,6 @@ class AthleteRegForm extends React.Component {
                 name="extracurriculars"
                 value={this.state.extracurriculars}
                 onChange={this.handleInput}
-                placeholder="Enter Extracurriculars"
               />
             </Form.Group>
 
@@ -185,7 +178,6 @@ class AthleteRegForm extends React.Component {
                 name="priorWorkExperience"
                 value={this.state.priorWorkExperience}
                 onChange={this.handleInput}
-                placeholder="Enter Prior Work Experience"
               />
             </Form.Group>
 

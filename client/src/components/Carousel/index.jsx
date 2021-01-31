@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import API from "../../utils/API";
-import AthleteCard from "../AthleteCard";
+import CardFlip from "../CardFlip";
 import Carousel from "react-multi-carousel";
 import "react-multi-carousel/lib/styles.css";
 import { useParams } from "react-router-dom";
@@ -41,13 +41,14 @@ export default function ProfileCarousel({ deviceType }) {
       });
     }
   }, [profileType.profileType]);
+  // infinite look when i add profiles to dependencies but i need it to appear when new profile is made
 
   return (
     <Carousel
       partialVisbile
       swipeable={true}
       draggable={false}
-      showDots={true}
+      showDots={false}
       responsive={responsive}
       // ssr={true} // means to render carousel on server-side.
       infinite={false}
@@ -63,7 +64,7 @@ export default function ProfileCarousel({ deviceType }) {
       itemClass="carousel-item-padding-40-px"
     >
       {profiles.map((profile, index) => {
-        return <AthleteCard key={index} profile={profile} />;
+        return <CardFlip key={index} profile={profile} />;
       })}
     </Carousel>
   );

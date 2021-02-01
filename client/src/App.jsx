@@ -5,7 +5,7 @@ import Header from "./components/Header";
 import Footer from "./components/Footer";
 import PageNotFound from "./components/PageNotFound";
 import ProfileCarousel from "./components/Carousel";
-import Profile from "./pages/Profiles";
+import AthleteHome from "./pages/AthleteHome";
 // import Store into this component
 
 function App() {
@@ -23,12 +23,9 @@ function App() {
               </Container>
             </Route>
             <Route exact path={"/profiles/:profileType"}>
-              <Container>
-                <ProfileCarousel deviceType={"desktop"} />
-              </Container>
-              <Container>
-                <Profile />
-              </Container>
+              {/* need to figure out how to render based on param
+              either AthleteHome, CadetHome, StudentHome */}
+              <AthleteHome />
             </Route>
             <Route exact path={"/profiles"}>
               <Container>

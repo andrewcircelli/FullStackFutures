@@ -17,8 +17,8 @@ const API = {
     return axios.delete("/api/profile/" + id);
   },
   // CREATEs a profile to the database
-  saveProfile: function (profileData) {
-    return axios.post("/api/profiles/student", profileData);
+  saveProfile: function (profileType, profileData) {
+    return axios.post("/api/profiles/" + profileType, profileData);
   },
 };
 

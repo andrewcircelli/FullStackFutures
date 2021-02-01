@@ -1,14 +1,14 @@
 import React from "react";
 import { useParams } from "react-router-dom";
 import { Col, Row, Container } from "../components/Grid";
-import AthleteRegForm from "../components/AthleteRegForm";
+import StudentRegForm from "../components/StudentRegForm";
 import ProfileCarousel from "../components/Carousel";
 
-const AthleteHome = () => {
+const StudentHome = () => {
   const { profileType } = useParams();
 
   return (
-    <Container>
+    <Container fluid>
       <Row>
         <Col size="md-8">
           <ProfileCarousel deviceType={"desktop"} />
@@ -17,7 +17,7 @@ const AthleteHome = () => {
       <Row>
         <Col size="md-3"></Col>
         <Col size="md-6">
-          <AthleteRegForm profileType={profileType} />
+          <StudentRegForm profileType={profileType} />
         </Col>
         <Col size="md-3"></Col>
       </Row>
@@ -25,4 +25,4 @@ const AthleteHome = () => {
   );
 };
 
-export default AthleteHome;
+export default StudentHome;

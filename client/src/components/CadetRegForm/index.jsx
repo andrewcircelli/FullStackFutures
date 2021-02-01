@@ -2,8 +2,7 @@ import React from "react";
 import { Form, Button, Fade } from "react-bootstrap";
 import API from "../../utils/API";
 
-class AthleteRegForm extends React.Component {
-  // need to reset state when the form is submitted
+class CadetRegForm extends React.Component {
   state = {
     firstName: "",
     lastName: "",
@@ -11,21 +10,19 @@ class AthleteRegForm extends React.Component {
     graduationYear: "",
     phoneNumber: "",
     email: "",
-    sport: "",
-    position: "",
+    branch: "",
     height: "",
     weight: "",
-    achievements: "",
+    BMI: "",
+    DesiredMilitaryOccupationalSpecialty: "",
     open: false,
   };
   saveProfile = (event) => {
     event.preventDefault();
-    API.saveProfile(this.props.profileType, this.state).then(
-      (athleteProfile) => {
-        // will need to push this profile doc to logged in user
-        console.log("From AthleteRegForm.js", athleteProfile);
-      }
-    );
+    API.saveProfile(this.props.profileType, this.state).then((cadetProfile) => {
+      // will need to push this profile doc to logged in user
+      console.log("From CadetRegForm.js", cadetProfile);
+    });
     this.setState({
       open: false,
     });
@@ -112,21 +109,11 @@ class AthleteRegForm extends React.Component {
             </Form.Group>
 
             <Form.Group controlId="formBasicText">
-              <Form.Label>Sport</Form.Label>
+              <Form.Label>Branch </Form.Label>
               <Form.Control
                 type="text"
-                name="sport"
-                value={this.state.sport}
-                onChange={this.handleInput}
-              />
-            </Form.Group>
-
-            <Form.Group controlId="formBasicText">
-              <Form.Label>Position</Form.Label>
-              <Form.Control
-                type="text"
-                name="position"
-                value={this.state.position}
+                name="branch"
+                value={this.state.branch}
                 onChange={this.handleInput}
               />
             </Form.Group>
@@ -151,22 +138,22 @@ class AthleteRegForm extends React.Component {
               />
             </Form.Group>
 
-            <Form.Group controlId="formBasicText">
-              <Form.Label>Achievements</Form.Label>
+            <Form.Group controlId="formBasicNumber">
+              <Form.Label>BMI</Form.Label>
               <Form.Control
-                type="text"
-                name="achievements"
-                value={this.state.achievements}
+                type="number"
+                name="BMI"
+                value={this.state.BMI}
                 onChange={this.handleInput}
               />
             </Form.Group>
 
             <Form.Group controlId="formBasicText">
-              <Form.Label>Extracurriculars</Form.Label>
+              <Form.Label>Desired Occupation</Form.Label>
               <Form.Control
                 type="text"
-                name="extracurriculars"
-                value={this.state.extracurriculars}
+                name="DesiredMilitaryOccupationSpecialty"
+                value={this.state.DesiredMilitaryOccupationalSpecialty}
                 onChange={this.handleInput}
               />
             </Form.Group>
@@ -182,7 +169,7 @@ class AthleteRegForm extends React.Component {
             </Form.Group>
 
             <Button variant="primary" type="submit" onClick={this.saveProfile}>
-              Create New Athlete
+              Submit
             </Button>
           </Form>
         </Fade>
@@ -191,4 +178,4 @@ class AthleteRegForm extends React.Component {
   }
 }
 
-export default AthleteRegForm;
+export default CadetRegForm;

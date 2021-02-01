@@ -3,7 +3,7 @@ import { Card } from "react-bootstrap";
 
 export default function FrontCard({ profile, flipCard }) {
   return (
-    <Card style={{ width: "18rem" }}>
+    <Card className="text-center" style={{ width: "18rem" }}>
       {profile.profileType === "athlete" ? (
         <>
           <Card.Header as="h5" onClick={flipCard}>

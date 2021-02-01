@@ -23,6 +23,8 @@ function App() {
               </Container>
             </Route>
             <Route exact path={"/profiles/:profileType"}>
+              {/* need to figure out how to render based on param
+              either AthleteHome, CadetHome, StudentHome */}
               <AthleteHome />
             </Route>
             <Route exact path={"/profiles"}>

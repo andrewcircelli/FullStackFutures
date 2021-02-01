@@ -1,20 +1,22 @@
 import React from "react";
-import { Card } from "react-bootstrap";
+import { Card, Badge } from "react-bootstrap";
 import {
   FrontAthleteBody,
   FrontStudentBody,
   FrontCadetBody,
 } from "../FrontCardBody";
-import athlete from "./athlete.png";
-import cadet from "./cadet.png";
-import student from "./student.png";
+import athlete from "./imgs/athlete.png";
+import cadet from "./imgs/cadet.png";
+import student from "./imgs/student.png";
 
 export default function FrontCard({ profile, flipCard }) {
   return (
-    <Card style={{ width: "18rem" }}>
+    <Card className="text-center" style={{ width: "18rem" }}>
       {profile.profileType === "athlete" ? (
         <>
-          <Card.Header as="h5">Athlete - {profile.sport}</Card.Header>
+          <Card.Header as="h5">
+            <Badge variant="secondary">Athlete - {profile.sport}</Badge>
+          </Card.Header>
           <Card.Img variant="top" src={athlete} onClick={flipCard} />
           <Card.Body>
             <FrontAthleteBody profile={profile} />
@@ -23,7 +25,9 @@ export default function FrontCard({ profile, flipCard }) {
         </>
       ) : profile.profileType === "student" ? (
         <>
-          <Card.Header as="h5">Student - {profile.university}</Card.Header>
+          <Card.Header as="h5">
+            <Badge variant="secondary">Student - {profile.university}</Badge>
+          </Card.Header>
           <Card.Img variant="top" src={student} onClick={flipCard} />
           <Card.Body>
             <FrontStudentBody profile={profile} />
@@ -32,7 +36,9 @@ export default function FrontCard({ profile, flipCard }) {
         </>
       ) : (
         <>
-          <Card.Header as="h5">Cadet - {profile.branch}</Card.Header>
+          <Card.Header as="h5">
+            <Badge variant="secondary">Cadet - {profile.branch}</Badge>
+          </Card.Header>
           <Card.Img variant="top" src={cadet} onClick={flipCard} />
           <Card.Body>
             <FrontCadetBody profile={profile} />

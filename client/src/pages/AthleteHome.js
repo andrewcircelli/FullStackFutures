@@ -8,7 +8,7 @@ const AthleteHome = () => {
   const { profileType } = useParams();
 
   return (
-    <Container>
+    <Container fluid>
       <Row>
         <Col size="md-8">
           <ProfileCarousel deviceType={"desktop"} />

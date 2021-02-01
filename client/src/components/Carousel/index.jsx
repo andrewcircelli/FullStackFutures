@@ -1,54 +1,44 @@
-import React, { useEffect, useState } from "react";
-import API from "../../utils/API";
+import React from "react";
+import useAxios from "../../utils/useAxios";
+import { useParams } from "react-router-dom";
 import CardFlip from "../CardFlip";
 import Carousel from "react-multi-carousel";
+import SpinnerPage from "../Spinner";
 import "react-multi-carousel/lib/styles.css";
-import { useParams } from "react-router-dom";
 
 const responsive = {
   desktop: {
     breakpoint: { max: 3000, min: 1024 },
     items: 3,
-    slidesToSlide: 3, // optional, default to 1.
+    paritialVisibilityGutter: 60,
   },
   tablet: {
     breakpoint: { max: 1024, min: 464 },
     items: 2,
-    slidesToSlide: 2, // optional, default to 1.
+    paritialVisibilityGutter: 50,
   },
   mobile: {
     breakpoint: { max: 464, min: 0 },
     items: 1,
-    slidesToSlide: 1, // optional, default to 1.
+    paritialVisibilityGutter: 30,
   },
 };
 
 export default function ProfileCarousel({ deviceType }) {
-  const [profiles, setProfiles] = useState([]);
   const profileType = useParams();
+  const { data: profiles, loading, error } = useAxios(profileType);
 
-  useEffect(() => {
-    if (profileType.profileType !== undefined) {
-      console.log("not undefined");
-      API.getProfilesByType(profileType.profileType).then((profileData) => {
-        console.log("From Caraousel", profileData.data);
-        setProfiles(profileData.data);
-      });
-    } else {
-      API.getProfiles().then((profileData) => {
-        console.log("From Caraousel", profileData.data);
-        setProfiles(profileData.data);
-      });
-    }
-  }, [profileType.profileType]);
-  // infinite look when i add profiles to dependencies but i need it to appear when new profile is made
+  // going to want to move this out to a global store
+  // spinner should take up entire page imo
+  if (error) throw error;
+  if (loading) return <SpinnerPage />;
 
   return (
     <Carousel
       partialVisbile
       swipeable={true}
       draggable={false}
-      showDots={false}
+      // showDots={true}
       responsive={responsive}
       // ssr={true} // means to render carousel on server-side.
       infinite={false}
@@ -58,10 +48,13 @@ export default function ProfileCarousel({ deviceType }) {
       customTransition="all .5"
       transitionDuration={500}
       containerClass="carousel-container"
+      // containerClass="container-with-dots"
+      // renderDotsOutside={true}
+      // focusOnSelect={true}
       removeArrowOnDeviceType={["tablet", "mobile"]}
       deviceType={deviceType}
-      dotListClass="custom-dot-list-style"
-      itemClass="carousel-item-padding-40-px"
+      // dotListClass="custom-dot-list-style"
+      itemClass="image-item"
     >
       {profiles.map((profile, index) => {
         return <CardFlip key={index} profile={profile} />;

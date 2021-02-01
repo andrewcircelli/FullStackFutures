@@ -3,7 +3,7 @@ import ReactCardFlip from "react-card-flip";
 import FrontCard from "../FrontCard";
 import BackCard from "../BackCard";
 
-class AthleteCard extends React.Component {
+class CardFlip extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -30,4 +30,4 @@ class AthleteCard extends React.Component {
     );
   }
 }
-export default AthleteCard;
+export default CardFlip;

@@ -10,7 +10,12 @@ function router() {
       db.ProfileModel.find()
         .sort({ createdOn: "1" })
         .exec()
-        .then((profileDocs) => res.status(200).json(profileDocs))
+        .then((profileDocs) => {
+          res
+            .header("Access-Control-Allow-Origin", "*")
+            .status(200)
+            .json(profileDocs);
+        })
         .catch((err) => {
           res.status(422).json({
             message: "Error finding the profiles",
@@ -22,6 +27,7 @@ function router() {
     .route("/:profileType")
     // GET: get all (profileType) profile documents in profiles collection
     .all((req, res, next) => {
+      console.log();
       const { profileType } = req.params;
       req.profileType = profileType;
       switch (profileType) {
@@ -43,7 +49,7 @@ function router() {
         if (err) {
           return res.status(400).json(err);
         }
-        res.status(200).send(docs);
+        res.header("Access-Control-Allow-Origin", "*").status(200).send(docs);
       });
     })
     // POST: post, create a new profile document based on req.Model

@@ -24,14 +24,15 @@ const responsive = {
   },
 };
 
-export default function ProfileCarousel({ deviceType }) {
-  const profileType = useParams();
-  const { data: profiles, loading, error } = useAxios(profileType);
+export default function ProfileCarousel({ deviceType, profiles }) {
+  console.log("From Cara", profiles);
+  // const profileType = useParams();
+  // const { data: profiles, loading, error } = useAxios(profileType);
 
-  // going to want to move this out to a global store
-  // spinner should take up entire page imo
-  if (error) throw error;
-  if (loading) return <SpinnerPage />;
+  // // going to want to move this out to a global store
+  // // spinner should take up entire page imo
+  // if (error) throw error;
+  // if (loading) return <SpinnerPage />;
 
   return (
     <Carousel

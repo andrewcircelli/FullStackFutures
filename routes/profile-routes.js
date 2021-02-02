@@ -4,7 +4,7 @@ const db = require("../models");
 
 function router() {
   profileRouter
-    .route("/")
+    .route("/all")
     // GET: get list of all profiles using Promise syntax
     .get((req, res) => {
       db.ProfileModel.find()
@@ -27,7 +27,6 @@ function router() {
     .route("/:profileType")
     // GET: get all (profileType) profile documents in profiles collection
     .all((req, res, next) => {
-      console.log();
       const { profileType } = req.params;
       req.profileType = profileType;
       switch (profileType) {

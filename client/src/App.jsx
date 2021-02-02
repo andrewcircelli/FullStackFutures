@@ -1,14 +1,32 @@
 import React from "react";
-import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
+import {
+  BrowserRouter as Router,
+  Route,
+  Switch,
+  useParams,
+} from "react-router-dom";
 import { Container } from "./components/Grid";
 import Header from "./components/Header";
 import Footer from "./components/Footer";
 import PageNotFound from "./components/PageNotFound";
 import ProfileCarousel from "./components/Carousel";
-import AthleteHome from "./pages/AthleteHome";
+import Home from "./pages/Home";
+
 // import Store into this component
 
 function App() {
+  // const chooseHomePage = function () {
+  //   switch (profileType.profileType) {
+  //     case "athlete":
+  //       return <AthleteHome />;
+  //     case "student":
+  //       return <StudentHome />;
+  //     case "cadet":
+  //       return <CadetHome />;
+  //     default:
+  //       return <ProfileCarousel deviceType={"desktop"} />;
+  //   }
+  // };
   return (
     <Router>
       <div>
@@ -23,9 +41,7 @@ function App() {
               </Container>
             </Route>
             <Route exact path={"/profiles/:profileType"}>
-              {/* need to figure out how to render based on param
-              either AthleteHome, CadetHome, StudentHome */}
-              <AthleteHome />
+              <Home />
             </Route>
             <Route exact path={"/profiles"}>
               <Container>

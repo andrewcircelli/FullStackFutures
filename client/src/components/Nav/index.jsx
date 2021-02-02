@@ -9,7 +9,7 @@ function NavBar() {
   return (
     <Navbar className="mb-2" bg="light">
       <Nav>
-        <Nav.Link href="/profiles" activeStyle={activeStyle}>
+        <Nav.Link href="/profiles/all" activeStyle={activeStyle}>
           Profiles
         </Nav.Link>
         <Nav.Link href="/profiles/student" activeStyle={activeStyle}>

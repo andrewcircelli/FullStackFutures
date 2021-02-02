@@ -99,7 +99,7 @@ class CadetRegForm extends React.Component {
             </Form.Group>
 
             <Form.Group controlId="formBasicEmail">
-              <Form.Label>email</Form.Label>
+              <Form.Label>Email</Form.Label>
               <Form.Control
                 type="email"
                 name="email"
@@ -109,7 +109,7 @@ class CadetRegForm extends React.Component {
             </Form.Group>
 
             <Form.Group controlId="formBasicText">
-              <Form.Label>Branch </Form.Label>
+              <Form.Label>Branch</Form.Label>
               <Form.Control
                 type="text"
                 name="branch"
@@ -169,7 +169,7 @@ class CadetRegForm extends React.Component {
             </Form.Group>
 
             <Button variant="primary" type="submit" onClick={this.saveProfile}>
-              Submit
+              Create New Military Profile
             </Button>
           </Form>
         </Fade>

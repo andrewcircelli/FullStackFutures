@@ -48,6 +48,7 @@ class AthleteRegForm extends React.Component {
   render() {
     return (
       <>
+        {/* potentially use derived state to disable/enable toggle form based on if user is logged in */}
         <Button onClick={this.handleFade}>Toggle Form</Button>
         <Fade in={this.state.open}>
           <Form className="container">
@@ -102,7 +103,7 @@ class AthleteRegForm extends React.Component {
             </Form.Group>
 
             <Form.Group controlId="formBasicEmail">
-              <Form.Label>email</Form.Label>
+              <Form.Label>Email</Form.Label>
               <Form.Control
                 type="email"
                 name="email"
@@ -182,7 +183,7 @@ class AthleteRegForm extends React.Component {
             </Form.Group>
 
             <Button variant="primary" type="submit" onClick={this.saveProfile}>
-              Create New Athlete
+              Create New Athlete Profile
             </Button>
           </Form>
         </Fade>

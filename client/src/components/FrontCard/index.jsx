@@ -21,7 +21,9 @@ export default function FrontCard({ profile, flipCard }) {
           <Card.Body>
             <FrontAthleteBody profile={profile} />
           </Card.Body>
-          <Card.Footer className="text-muted">Athlete Footer</Card.Footer>
+          <Card.Footer className="text-muted">
+            {profile.graduationYear}
+          </Card.Footer>
         </>
       ) : profile.profileType === "student" ? (
         <>
@@ -32,7 +34,9 @@ export default function FrontCard({ profile, flipCard }) {
           <Card.Body>
             <FrontStudentBody profile={profile} />
           </Card.Body>
-          <Card.Footer className="text-muted">Student Footer</Card.Footer>
+          <Card.Footer className="text-muted">
+            {profile.graduationYear}
+          </Card.Footer>
         </>
       ) : (
         <>
@@ -43,7 +47,9 @@ export default function FrontCard({ profile, flipCard }) {
           <Card.Body>
             <FrontCadetBody profile={profile} />
           </Card.Body>
-          <Card.Footer className="text-muted">Cadet Footer</Card.Footer>
+          <Card.Footer className="text-muted">
+            {profile.graduationYear}
+          </Card.Footer>
         </>
       )}
     </Card>

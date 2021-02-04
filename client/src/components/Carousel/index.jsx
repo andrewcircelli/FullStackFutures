@@ -1,61 +1,65 @@
-import React, { useEffect, useState } from "react";
-import API from "../../utils/API"
-import AthleteProfileCard from "../AthleteProfileCard";
+import React from "react";
+import useAxios from "../../utils/useAxios";
+import { useParams } from "react-router-dom";
+import CardFlip from "../CardFlip";
 import Carousel from "react-multi-carousel";
+import SpinnerPage from "../Spinner";
 import "react-multi-carousel/lib/styles.css";
 
 const responsive = {
   desktop: {
     breakpoint: { max: 3000, min: 1024 },
     items: 3,
-    paritialVisibilityGutter: 60
+    paritialVisibilityGutter: 60,
   },
   tablet: {
     breakpoint: { max: 1024, min: 464 },
     items: 2,
-    slidesToSlide: 2 // optional, default to 1.
+    paritialVisibilityGutter: 50,
   },
   mobile: {
     breakpoint: { max: 464, min: 0 },
     items: 1,
-    slidesToSlide: 1 // optional, default to 1.
-  }
+    paritialVisibilityGutter: 30,
+  },
 };
 
-export default function ProfileCarousel({deviceType}) {
-  const [ profiles, setProfiles ] = useState([]);
+export default function ProfileCarousel({ deviceType, profiles }) {
+  console.log("From Cara", profiles);
+  // const profileType = useParams();
+  // const { data: profiles, loading, error } = useAxios(profileType);
 
-  useEffect( ()=> {
-    API.getProfile().then((profileData) => {
-      console.log("From Caraousel", profileData.data);
-      setProfiles(profileData.data);
-    });
-  }, []);
+  // // going to want to move this out to a global store
+  // // spinner should take up entire page imo
+  // if (error) throw error;
+  // if (loading) return <SpinnerPage />;
 
   return (
     <Carousel
       partialVisbile
-      swipeable={false}
+      swipeable={true}
       draggable={false}
-      showDots={true}
+      // showDots={true}
       responsive={responsive}
       // ssr={true} // means to render carousel on server-side.
-      infinite={true}
+      infinite={false}
       // autoPlay={deviceType !== "mobile" ? true : false}
       // autoPlaySpeed={5000}
       keyBoardControl={true}
       customTransition="all .5"
       transitionDuration={500}
       containerClass="carousel-container"
+      // containerClass="container-with-dots"
+      // renderDotsOutside={true}
+      // focusOnSelect={true}
       removeArrowOnDeviceType={["tablet", "mobile"]}
       deviceType={deviceType}
-      dotListClass="custom-dot-list-style"
-      itemClass="carousel-item-padding-10-px"
+      // dotListClass="custom-dot-list-style"
+      itemClass="image-item"
     >
-      { profiles.map((profile, index) => {
-      return <AthleteProfileCard key={index} profile={profile}/> 
+      {profiles.map((profile, index) => {
+        return <CardFlip key={index} profile={profile} />;
       })}
-
     </Carousel>
-  )
+  );
 }

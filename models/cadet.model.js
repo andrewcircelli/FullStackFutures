@@ -10,6 +10,6 @@ const cadetSchema = new Schema({
   DesiredMilitaryOccupationalSpecialty: { type: String },
 });
 
-const CadetModel = Profile.discriminator("Cadet", cadetSchema);
+const CadetModel = Profile.discriminator("cadet", cadetSchema);
 
 module.exports = CadetModel;

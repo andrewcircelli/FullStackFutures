@@ -1,18 +1,32 @@
 import React from "react";
-import { NavLink } from "react-router-dom";
+import { Navbar, Nav } from "react-bootstrap";
 
 const activeStyle = {
   color: "blue",
 };
 
-function Nav() {
+function NavBar() {
   return (
-    <nav>
-      <NavLink to="/api/profiles" activeStyle={activeStyle}>Profiles</NavLink>
-      <NavLink to="/api/aboutus" activeStyle={activeStyle}>About Us</NavLink>
-      <NavLink to="/api/other" activeStyle={activeStyle}>Other Link</NavLink>
-    </nav>
+    <Navbar className="mb-2" bg="light">
+      <Nav>
+        <Nav.Link href="/profiles/all" activeStyle={activeStyle}>
+          Profiles
+        </Nav.Link>
+        <Nav.Link href="/profiles/student" activeStyle={activeStyle}>
+          Student Admin
+        </Nav.Link>
+        <Nav.Link href="/profiles/athlete" activeStyle={activeStyle}>
+          Athlete Admin
+        </Nav.Link>
+        <Nav.Link href="/profiles/cadet" activeStyle={activeStyle}>
+          Cadet Admin
+        </Nav.Link>
+        <Nav.Link href="/aboutus" activeStyle={activeStyle}>
+          About Us
+        </Nav.Link>
+      </Nav>
+    </Navbar>
   );
 }
 
-export default Nav;
+export default NavBar;

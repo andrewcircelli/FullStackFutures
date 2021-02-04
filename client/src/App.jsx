@@ -6,7 +6,7 @@ import Footer from "./components/Footer"
 import PageNotFound from "./components/PageNotFound";
 import ProfileCarousel from "./components/Carousel";
 import Profile from "./pages/Profiles";
-import Jumbotron from "./components/Jumbotron";
+// import Jumbotron from "./components/Jumbotron";
 
 // import Store into this component
 

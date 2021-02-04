@@ -1,9 +1,6 @@
 import React from "react";
-import useAxios from "../../utils/useAxios";
-import { useParams } from "react-router-dom";
 import CardFlip from "../CardFlip";
 import Carousel from "react-multi-carousel";
-import SpinnerPage from "../Spinner";
 import "react-multi-carousel/lib/styles.css";
 
 const responsive = {
@@ -26,13 +23,6 @@ const responsive = {
 
 export default function ProfileCarousel({ deviceType, profiles }) {
   console.log("From Cara", profiles);
-  // const profileType = useParams();
-  // const { data: profiles, loading, error } = useAxios(profileType);
-
-  // // going to want to move this out to a global store
-  // // spinner should take up entire page imo
-  // if (error) throw error;
-  // if (loading) return <SpinnerPage />;
 
   return (
     <Carousel

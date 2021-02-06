@@ -2,7 +2,6 @@ import { useEffect, useState } from "react";
 import axios from "axios";
 
 export default function useAxios(profileType) {
-  console.log("from useAxios", profileType);
   const [data, setData] = useState([]);
   const [error, setError] = useState(null);
   const [loading, setLoading] = useState(true);
@@ -14,7 +13,6 @@ export default function useAxios(profileType) {
           const response = await axios.get(
             "http://localhost:3001/api/profiles/" + profileType
           );
-          console.log(response);
           setData(response.data);
         } catch (error) {
           setError(error);
@@ -22,12 +20,10 @@ export default function useAxios(profileType) {
           setLoading(false);
         }
       } else {
-        console.log("hit this route");
         try {
           const response = await axios.get(
             "http://localhost:3001/api/profiles/all"
           );
-          console.log(response);
           setData(response.data);
         } catch (error) {
           setError(error);

@@ -22,8 +22,6 @@ const responsive = {
 };
 
 export default function ProfileCarousel({ deviceType, profiles }) {
-  console.log("From Cara", profiles);
-
   return (
     <Carousel
       partialVisbile
@@ -38,14 +36,14 @@ export default function ProfileCarousel({ deviceType, profiles }) {
       keyBoardControl={true}
       customTransition="all .5"
       transitionDuration={500}
-      containerClass="carousel-container"
+      // containerClass="carousel-container"
       // containerClass="container-with-dots"
       // renderDotsOutside={true}
       // focusOnSelect={true}
       removeArrowOnDeviceType={["tablet", "mobile"]}
       deviceType={deviceType}
       // dotListClass="custom-dot-list-style"
-      itemClass="image-item"
+      // itemClass="image-item"
     >
       {profiles.map((profile, index) => {
         return <CardFlip key={index} profile={profile} />;

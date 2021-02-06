@@ -20,27 +20,15 @@ const Home = (props) => {
     <div>
       {profileType === "athlete" ? (
         <Container>
-          <Row>
-            <AthleteHome profileType={profileType} profiles={profiles} />
-          </Row>
+          <AthleteHome profileType={profileType} profiles={profiles} />
         </Container>
       ) : profileType === "student" ? (
-        <Container>
-          <StudentHome profileType={profileType} profiles={profiles} />
-        </Container>
+        <StudentHome profileType={profileType} profiles={profiles} />
       ) : profileType === "cadet" ? (
-        <Container>
-          <CadetHome profileType={profileType} profiles={profiles} />
-        </Container>
+        <CadetHome profileType={profileType} profiles={profiles} />
       ) : (
         <div className="border border-dark">
-          <Container>
-            <Row>
-              <Col size="12">
-                <ProfileHome profileType={"all"} profiles={profiles} />
-              </Col>
-            </Row>
-          </Container>
+          <ProfileHome profileType={"all"} profiles={profiles} />
         </div>
       )}
     </div>

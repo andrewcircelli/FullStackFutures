@@ -1,10 +1,6 @@
 import React from "react";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
-import { Container } from "./components/Grid";
-import Header from "./components/Header";
-import Footer from "./components/Footer";
-import PageNotFound from "./components/PageNotFound";
-import ProfileCarousel from "./components/Carousel";
+import Layout from "./components/Layout";
 import Home from "./pages/Home";
 
 // import Store into this component
@@ -12,34 +8,18 @@ import Home from "./pages/Home";
 function App() {
   return (
     <Router>
-      <div>
-        <Container>
-          <Header />
-        </Container>
+      <Layout>
         <main>
           <Switch>
             <Route exact path={"/"}>
-              <Container>
-                <h1>My React App</h1>
-              </Container>
+              <h1 className="text-center border border-dark">My React App</h1>
             </Route>
             <Route exact path={"/profiles/:profileType"}>
               <Home />
             </Route>
-            <Route exact path={"/profiles"}>
-              <Container>
-                <ProfileCarousel deviceType={"desktop"} />
-              </Container>
-            </Route>
-            <Route>
-              <PageNotFound />
-            </Route>
           </Switch>
         </main>
-        <Container>
-          <Footer />
-        </Container>
-      </div>
+      </Layout>
     </Router>
   );
 }

@@ -1,7 +1,7 @@
 import React from "react";
+import { Container, Row, Col } from "../components/Grid";
 import useAxios from "../utils/useAxios";
 import SpinnerPage from "../components/Spinner";
-
 import { useParams } from "react-router-dom";
 import AthleteHome from "./AthleteHome";
 import StudentHome from "./StudentHome";
@@ -10,25 +10,38 @@ import ProfileHome from "./ProfileHome";
 
 const Home = (props) => {
   const { profileType } = useParams();
-  console.log("From Home.js", profileType);
 
+  // consider moving to globalStore
   const { data: profiles, loading, error } = useAxios(profileType);
-  console.log("From Home.js", profiles);
-  // going to want to move this out to a global store
-  // spinner should take up entire page imo
   if (error) throw error;
   if (loading) return <SpinnerPage />;
 
   return (
     <div>
       {profileType === "athlete" ? (
-        <AthleteHome profileType={profileType} profiles={profiles} />
+        <Container>
+          <Row>
+            <AthleteHome profileType={profileType} profiles={profiles} />
+          </Row>
+        </Container>
       ) : profileType === "student" ? (
-        <StudentHome profileType={profileType} profiles={profiles} />
+        <Container>
+          <StudentHome profileType={profileType} profiles={profiles} />
+        </Container>
       ) : profileType === "cadet" ? (
-        <CadetHome profileType={profileType} profiles={profiles} />
+        <Container>
+          <CadetHome profileType={profileType} profiles={profiles} />
+        </Container>
       ) : (
-        <ProfileHome profileType={"all"} profiles={profiles} />
+        <div className="border border-dark">
+          <Container>
+            <Row>
+              <Col size="12">
+                <ProfileHome profileType={"all"} profiles={profiles} />
+              </Col>
+            </Row>
+          </Container>
+        </div>
       )}
     </div>
   );

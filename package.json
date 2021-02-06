@@ -34,7 +34,8 @@
     "morgan": "^1.10.0",
     "react-bootstrap": "^1.4.3",
     "react-icons": "^4.1.0",
-    "react-multi-carousel": "^2.6.1"
+    "react-multi-carousel": "^2.6.1",
+    "react-slick": "^0.28.0"
   },
   "bugs": {
     "url": "https://github.com/ac08/Project3/issues"

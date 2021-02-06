@@ -10,12 +10,7 @@ import Header from "./components/Header";
 import Footer from "./components/Footer";
 import PageNotFound from "./components/PageNotFound";
 import ProfileCarousel from "./components/Carousel";
-<<<<<<< HEAD
-import Profile from "./pages/Profiles";
-// import Jumbotron from "./components/Jumbotron";
-=======
 import Home from "./pages/Home";
->>>>>>> 243317274a2ba24ecd6469c0e9bedbd38373a1f2
 
 // import Store into this component
 

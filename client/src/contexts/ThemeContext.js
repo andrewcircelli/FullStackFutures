@@ -1,5 +1,5 @@
 import React from "react";
-import useTheme from "../utils/useTheme";
+import useTheme from "../hooks/useTheme";
 
 const THEMELIST = {
   DARK: "dark",

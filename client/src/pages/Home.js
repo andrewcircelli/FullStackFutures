@@ -1,6 +1,6 @@
 import React from "react";
-import { Container, Row, Col } from "../components/Grid";
-import useAxios from "../utils/useAxios";
+import { Container } from "../components/Grid";
+import useAxios from "../hooks/useAxios";
 import SpinnerPage from "../components/Spinner";
 import { useParams } from "react-router-dom";
 import AthleteHome from "./AthleteHome";

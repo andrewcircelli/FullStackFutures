@@ -1,5 +1,6 @@
 import React from "react";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
+import HeroSection from "./components/HeroSection";
 import Layout from "./components/Layout";
 import Home from "./pages/Home";
 
@@ -12,7 +13,7 @@ function App() {
         <main>
           <Switch>
             <Route exact path={"/"}>
-              <h1 className="text-center border border-dark">My React App</h1>
+              <HeroSection />
             </Route>
             <Route exact path={"/profiles/:profileType"}>
               <Home />

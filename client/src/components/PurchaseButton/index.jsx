@@ -20,7 +20,7 @@ function PurchaseButton(props) {
     //link the button component. Firstly, import 'Link' from gatsby using the import statement.
     //Link the Destination to="(what ever page or source file destination)"
     // wrap all the contents of the PurchaseButton component with Link and link it to 'source'
-    <Link to="/student">
+    <Link to="/profiles/student">
       <Wrapper>
         {/* To show the props sett {} */}
         {/* Props is an object */}

@@ -24,6 +24,7 @@ const Home = (props) => {
         } catch (error) {
           setError(error);
         } finally {
+          console.log("from Home", profiles);
           setLoading(false);
         }
       } else {
@@ -45,7 +46,7 @@ const Home = (props) => {
 
   return (
     <div>
-      {profileType === "athlete" ? (
+      {profiles && profileType === "athlete" ? (
         <AthleteHome profileType={profileType} profiles={profiles} />
       ) : profileType === "student" ? (
         <StudentHome profileType={profileType} profiles={profiles} />
@@ -56,6 +57,7 @@ const Home = (props) => {
           <ProfileHome profileType={"all"} profiles={profiles} />
         </div>
       )}
+      }
     </div>
   );
 };

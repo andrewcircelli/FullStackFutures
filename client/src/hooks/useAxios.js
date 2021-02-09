@@ -7,12 +7,11 @@ export default function useAxios(profileType) {
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
+    console.log(profileType);
     async function init() {
       if (profileType !== "all") {
         try {
-          const response = await axios.get(
-            "http://localhost:3001/api/profiles/" + profileType
-          );
+          const response = await axios.get("/api/profiles/" + profileType);
           setData(response.data);
         } catch (error) {
           setError(error);
@@ -21,9 +20,7 @@ export default function useAxios(profileType) {
         }
       } else {
         try {
-          const response = await axios.get(
-            "http://localhost:3001/api/profiles/all"
-          );
+          const response = await axios.get("/api/profiles/all");
           setData(response.data);
         } catch (error) {
           setError(error);
@@ -33,7 +30,7 @@ export default function useAxios(profileType) {
       }
     }
     init();
-  }, [profileType]);
+  }, []);
   // infinite loop when i add profiles to dependencies but i need it to appear when new profile is made
   // possibly use useMemo hook on the calling page/component
   return { data, error, loading };

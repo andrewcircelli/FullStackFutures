@@ -25,7 +25,7 @@ export default class ProfileCarousel extends Component {
           breakpoint: 1024,
           settings: {
             centerPadding: "15px",
-            slidesToShow: 2,
+            slidesToShow: 3,
           },
         },
         {
@@ -39,14 +39,10 @@ export default class ProfileCarousel extends Component {
       ],
     };
     return (
-      <div>
+      <div className="border border-danger">
         <Slider {...settings}>
           {this.props.profiles.map((profile, index) => {
-            return (
-              <>
-                <CardFlip key={index} profile={profile} />
-              </>
-            );
+            return <CardFlip key={index} profile={profile} />;
           })}
         </Slider>
       </div>

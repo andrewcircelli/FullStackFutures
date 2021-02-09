@@ -8,11 +8,12 @@ module.exports = function passportConfig(app) {
 
   // Stores the user in the session
   passport.serializeUser((user, done) => {
-    done(null, user.id);
+    done(null, user._id);
   });
   // Retrives the user from the session
   passport.deserializeUser(function (userId, done) {
     User.findById(userId, function (err, user) {
+      console.log("from passport", user);
       done(err, user);
     });
   });

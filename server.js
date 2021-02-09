@@ -27,6 +27,14 @@ require("./config/passport.js")(app);
 const profileRouter = require("./routes/profile-routes");
 const authRouter = require("./routes/auth-routes");
 
+// app.use("/", (req, res, next) => {
+//   if (req.params !== {}) {
+//     console.log("Req.Params", req.params);
+//     next();
+//   } else {
+//     return;
+//   }
+// });
 app.use("/api/auth", authRouter);
 app.use("/api/profiles", profileRouter);
 

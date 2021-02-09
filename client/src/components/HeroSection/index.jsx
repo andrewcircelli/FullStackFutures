@@ -21,8 +21,6 @@ function HeroSection() {
             <br />
             <a href="/profiles/athlete">Athletes</a>
             <br />
-            <a href="/details/all">Details</a>
-            <br />
           </Title>
           <Description>A Description About the Site Can Go Here</Description>
           {/* Pass in Props */}

@@ -28,15 +28,6 @@
     "@sendgrid/mail": "^7.4.2",
     "axios": "^0.21.1",
     "bootstrap": "^4.6.0",
-<<<<<<< HEAD
-    "cors": "^2.8.5",
-    "dotenv": "^8.2.0",
-    "express": "^4.17.1",
-    "if-env": "^1.0.4",
-    "mongoose": "^5.3.16",
-    "morgan": "^1.10.0",
-    "multer": "^1.4.2",
-=======
     "cookie-parser": "^1.4.5",
     "dotenv": "^8.2.0",
     "express": "^4.16.3",
@@ -46,7 +37,6 @@
     "morgan": "^1.10.0",
     "passport": "^0.4.1",
     "passport-local": "^1.0.0",
->>>>>>> 3c55ea3f9ade381e6a16dbc0ae36fb3a23337fcf
     "react-bootstrap": "^1.4.3",
     "react-icons": "^4.1.0",
     "react-multi-carousel": "^2.6.1",

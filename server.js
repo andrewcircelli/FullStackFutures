@@ -3,13 +3,8 @@ const express = require("express");
 const chalk = require("chalk");
 const morgan = require("morgan");
 const mongoose = require("mongoose");
-<<<<<<< HEAD
-const path = require("path");
-require('dotenv').config()
-=======
 const cookieParser = require("cookie-parser");
 const session = require("express-session");
->>>>>>> 3c55ea3f9ade381e6a16dbc0ae36fb3a23337fcf
 
 // Sets up the Express App
 const PORT = process.env.PORT || 8080;

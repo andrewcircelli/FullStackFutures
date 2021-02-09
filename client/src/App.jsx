@@ -1,8 +1,8 @@
 import React from "react";
-// import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
-// import HeroSection from "./components/HeroSection";
-// import Layout from "./components/Layout";
-// import Home from "./pages/Home";
+import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
+import HeroSection from "./components/HeroSection";
+import Layout from "./components/Layout";
+import Home from "./pages/Home";
 import SignUp from "./components/SignUp";
 import SignIn from "./components/SignIn";
 

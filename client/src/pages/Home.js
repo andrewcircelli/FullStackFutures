@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { Container } from "../components/Grid";
+// import { Container } from "../components/Grid";
 import SpinnerPage from "../components/Spinner";
 import { useParams } from "react-router-dom";
 import AthleteHome from "./AthleteHome";

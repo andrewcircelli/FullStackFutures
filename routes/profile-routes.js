@@ -48,6 +48,7 @@ function router() {
     })
     .get((req, res) => {
       const { profileType } = req;
+      console.log("Profile Routes", profileType);
       db.ProfileModel.find({ profileType: profileType }, (err, docs) => {
         if (err) {
           return res.status(400).json(err);

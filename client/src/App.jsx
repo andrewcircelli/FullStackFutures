@@ -14,6 +14,7 @@ function App() {
       <Layout>
         <Switch>
           <Route exact path={"/"}>
+            <HeroSection />
             <SignIn />
             <SignUp />
           </Route>

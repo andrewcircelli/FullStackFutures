@@ -15,29 +15,30 @@ const Home = (props) => {
 
   const { profileType } = useParams();
   useEffect(() => {
-    // consider moving to globalStore
-    if (profileType !== "all") {
-      try {
-        axios.get("/api/profiles/" + profileType).then((apiResults) => {
+    async function init() {
+      // consider moving to globalStore
+      if (profileType !== "all") {
+        try {
+          const apiResults = await axios.get("/api/profiles/" + profileType);
           setProfiles(apiResults.data);
-        });
-      } catch (error) {
-        setError(error);
-      } finally {
-        setLoading(false);
-      }
-    } else {
-      try {
-        axios.get("/api/profiles/all").then((results) => {
+        } catch (error) {
+          setError(error);
+        } finally {
+          setLoading(false);
+        }
+      } else {
+        try {
+          const results = await axios.get("/api/profiles/all");
           setProfiles(results.data);
-        });
-      } catch (error) {
-        setError(error);
-      } finally {
-        setLoading(false);
+        } catch (error) {
+          setError(error);
+        } finally {
+          setLoading(false);
+        }
       }
     }
-  }, []);
+    init();
+  }, [profileType]);
 
   if (error) throw error;
   if (loading) return <SpinnerPage />;

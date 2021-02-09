@@ -5,6 +5,7 @@ const chalk = require("chalk");
 const morgan = require("morgan");
 const mongoose = require("mongoose");
 const path = require("path");
+require('dotenv').config()
 
 // Sets up the Express App
 const PORT = process.env.PORT || 8080;

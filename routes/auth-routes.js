@@ -15,9 +15,9 @@ function router() {
         });
         console.log("From Auth Routes", dbUser);
         // login information stored in a cookie, deletes when server restarts
-        req.login(dbUser, () => {
+        req.logIn(dbUser, () => {
           // redirect to another page after user logs in
-          res.redirect("/api/auth/profile");
+          res.json(dbUser);
         });
       } catch (err) {
         console.log(err);
@@ -36,7 +36,7 @@ function router() {
         if (err) {
           return next(err);
         }
-        return res.redirect("/api/profiles/all");
+        return res.json(user);
       });
     })(req, res, next);
   });
@@ -45,10 +45,9 @@ function router() {
     .route("/profile")
     .all((req, res, next) => {
       if (req.user) {
-        console.log("from /profile", req.user);
         next();
       } else {
-        res.redirect("/");
+        console.log("user not logged in");
       }
     })
     .get((req, res) => {

@@ -16,7 +16,6 @@ module.exports = function localStrategy() {
           const user = await User.findOne({ username });
           console.log(user);
           if (user.password === password) {
-            console.log("From Local Strategy", user);
             done(null, user);
           } else {
             done(null, false);

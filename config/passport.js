@@ -13,7 +13,6 @@ module.exports = function passportConfig(app) {
   // Retrives the user from the session
   passport.deserializeUser(function (userId, done) {
     User.findById(userId, function (err, user) {
-      console.log("from passport", user);
       done(err, user);
     });
   });

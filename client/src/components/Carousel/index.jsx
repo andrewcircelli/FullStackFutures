@@ -12,13 +12,13 @@ export default class ProfileCarousel extends Component {
       speed: 1000,
       autoplay: true,
       autoplaySpeed: 4000,
-      slidesToShow: 3,
+      slidesToShow: 4,
       slidesToScroll: 1,
       draggable: true,
       centerMode: true,
       centerPadding: "40px",
       swipeToSlide: true,
-      arrows: false,
+      arrows: true,
       accessibility: false,
       responsive: [
         {

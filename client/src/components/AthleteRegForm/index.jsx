@@ -51,7 +51,7 @@ class AthleteRegForm extends React.Component {
         {/* potentially use derived state to disable/enable toggle form based on if user is logged in */}
         <Button onClick={this.handleFade}>Toggle Form</Button>
         <Fade in={this.state.open}>
-          <Form className="container">
+          <Form className="container" style={{ color: "white" }}>
             <Form.Group controlId="formBasicText">
               <Form.Label>First Name</Form.Label>
               <Form.Control

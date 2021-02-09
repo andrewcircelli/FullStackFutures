@@ -8,7 +8,6 @@ function router() {
     // GET: get list of all profiles using Promise syntax
     .get((req, res) => {
       if (req.isAuthenticated()) {
-        console.log("from All route", req.user);
         db.ProfileModel.find()
           .sort({ createdOn: "1" })
           .exec()
@@ -29,7 +28,7 @@ function router() {
       }
     });
   profileRouter
-    .route("/view/:profileType")
+    .route("/:profileType")
     // GET: get all (profileType) profile documents in profiles collection
     .all((req, res, next) => {
       const { profileType } = req.params;
@@ -59,9 +58,8 @@ function router() {
     // POST: post, create a new profile document based on req.Model
     .post((req, res) => {
       if (req.isAuthenticated()) {
-        console.log(req.user);
-        // add an isAuthtened on this
-        const dbModel = new req.Model(req.body, { userRef: req.user });
+        req.body.userRef = req.user;
+        const dbModel = new req.Model(req.body);
         dbModel.save((err, doc) => {
           if (err) {
             return res.status(400).json(err);

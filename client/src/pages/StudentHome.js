@@ -11,4 +11,5 @@ const StudentHome = ({ profileType, profiles }) => {
   );
 };
 
+
 export default StudentHome;

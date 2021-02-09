@@ -25,6 +25,7 @@
   },
   "dependencies": {
     "@egjs/react-flicking": "^3.5.2",
+    "@sendgrid/mail": "^7.4.2",
     "axios": "^0.21.1",
     "bootstrap": "^4.6.0",
     "cookie-parser": "^1.4.5",
@@ -39,7 +40,8 @@
     "react-bootstrap": "^1.4.3",
     "react-icons": "^4.1.0",
     "react-multi-carousel": "^2.6.1",
-    "react-slick": "^0.28.0"
+    "react-slick": "^0.28.0",
+    "unirest": "^0.6.0"
   },
   "bugs": {
     "url": "https://github.com/ac08/Project3/issues"

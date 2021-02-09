@@ -1,11 +1,14 @@
 import React from "react";
 import { Form, Button } from "react-bootstrap";
+import {Redirect} from "react-router-dom";
 import API from "../../utils/API";
+
 
 class SignIn extends React.Component {
   state = {
     username: "",
     password: "",
+    dashboard:false
   };
 
   handleInput = (event) => {
@@ -20,16 +23,25 @@ class SignIn extends React.Component {
     event.preventDefault();
     API.sendUser(this.state).then((dbUser) => {
       console.log("SignIn", dbUser);
+      this.setState({
+        // username: dbUser.config.data.username,
+        dashboard: true
+      })
+      this.props.setLoginStatus(this.state.username)
+      // return <Redirect to = "/dashboard/dbUser">
+
+      // </Redirect>
     });
-    this.setState({
-      username: "",
-      password: "",
-    });
+    // this.setState({
+    //   username: "",
+    //   password: "",
+    // });
   };
 
   render() {
     return (
       <>
+  
         <Form name="sign-in-form">
           <Form.Group controlId="username">
             <Form.Label>Username</Form.Label>
@@ -52,6 +64,7 @@ class SignIn extends React.Component {
             Sign In!
           </Button>
         </Form>
+      
       </>
     );
   }

@@ -8,10 +8,35 @@ export default class ProfileCarousel extends Component {
   render() {
     const settings = {
       dots: true,
-      infinite: false,
-      speed: 500,
+      infinite: true,
+      speed: 1000,
+      autoplay: true,
+      autoplaySpeed: 4000,
       slidesToShow: 3,
       slidesToScroll: 1,
+      draggable: true,
+      centerMode: true,
+      centerPadding: "40px",
+      swipeToSlide: true,
+      arrows: false,
+      accessibility: false,
+      responsive: [
+        {
+          breakpoint: 1024,
+          settings: {
+            centerPadding: "15px",
+            slidesToShow: 2,
+          },
+        },
+        {
+          breakpoint: 600,
+          settings: {
+            speed: 500,
+            slidesToShow: 1,
+            centerPadding: "15px",
+          },
+        },
+      ],
     };
     return (
       <div>

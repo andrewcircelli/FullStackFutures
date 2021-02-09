@@ -15,11 +15,11 @@ function HeroSection() {
           <Title>
             <a href="/profiles/all">Profiles</a>
             <br />
-            <a href="/student">Students</a>
+            <a href="/profiles/student">Students</a>
             <br />
-            <a href="/cadet">Cadets</a>
+            <a href="/profiles/cadet">Cadets</a>
             <br />
-            <a href="/athlete">Athletes</a>
+            <a href="/profiles/athlete">Athletes</a>
             <br />
             <a href="/details/all">Details</a>
             <br />

@@ -1,8 +1,6 @@
 import React from "react";
-import { Container } from "../components/Grid";
 import useAxios from "../hooks/useAxios";
 import SpinnerPage from "../components/Spinner";
-import HeroSection from "../components/HeroSection";
 import { useParams } from "react-router-dom";
 
 const Home = (props) => {

@@ -1,11 +1,15 @@
 // Dependencies
 const express = require("express");
 const chalk = require("chalk");
-// const debug = require('debug')('app');
 const morgan = require("morgan");
 const mongoose = require("mongoose");
+<<<<<<< HEAD
 const path = require("path");
 require('dotenv').config()
+=======
+const cookieParser = require("cookie-parser");
+const session = require("express-session");
+>>>>>>> 3c55ea3f9ade381e6a16dbc0ae36fb3a23337fcf
 
 // Sets up the Express App
 const PORT = process.env.PORT || 8080;
@@ -16,17 +20,19 @@ app.use(morgan("tiny"));
 
 // Sets up the Express app to handle data parsing
 app.use(express.json());
-app.use(express.urlencoded({ extended: true }));
+app.use(express.urlencoded({ extended: false }));
+app.use(cookieParser());
+app.use(session({ secret: "elites" }));
+
+require("./config/passport.js")(app);
 
 // Routes
 // =============================================================
 const profileRouter = require("./routes/profile-routes");
-// const adminRouter = require("./routes/admin-routes");
-// const indexRouter = require("./routes/index-routes");
+const authRouter = require("./routes/auth-routes");
 
-// app.use("/admin", adminRouter);
+app.use("/api/auth", authRouter);
 app.use("/api/profiles", profileRouter);
-// app.use("/", indexRouter);
 
 // Addn'l Middleware (something that is executed when everything comes in...)
 // =============================================================

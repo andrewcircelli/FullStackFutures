@@ -19,14 +19,15 @@ class CardFlip extends React.Component {
 
   render() {
     return (
-      <ReactCardFlip isFlipped={this.state.isFlipped} flipDirection="vertical">
-        <div>
+      <>
+        <ReactCardFlip
+          isFlipped={this.state.isFlipped}
+          flipDirection="vertical"
+        >
           <FrontCard profile={this.props.profile} flipCard={this.handleClick} />
-        </div>
-        <div>
           <BackCard profile={this.props.profile} flipCard={this.handleClick} />
-        </div>
-      </ReactCardFlip>
+        </ReactCardFlip>
+      </>
     );
   }
 }

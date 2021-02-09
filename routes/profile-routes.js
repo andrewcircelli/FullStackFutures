@@ -7,21 +7,25 @@ function router() {
     .route("/all")
     // GET: get list of all profiles using Promise syntax
     .get((req, res) => {
-      db.ProfileModel.find()
-        .sort({ createdOn: "1" })
-        .exec()
-        .then((profileDocs) => {
-          res
-            .header("Access-Control-Allow-Origin", "*")
-            .status(200)
-            .json(profileDocs);
-        })
-        .catch((err) => {
-          res.status(422).json({
-            message: "Error finding the profiles",
-            error: err,
+      if (req.isAuthenticated()) {
+        db.ProfileModel.find()
+          .sort({ createdOn: "1" })
+          .exec()
+          .then((profileDocs) => {
+            res
+              .header("Access-Control-Allow-Origin", "*")
+              .status(200)
+              .json(profileDocs);
+          })
+          .catch((err) => {
+            res.status(422).json({
+              message: "Error finding the profiles",
+              error: err,
+            });
           });
-        });
+      } else {
+        res.json("not logged in");
+      }
     });
   profileRouter
     .route("/:profileType")
@@ -53,13 +57,16 @@ function router() {
     })
     // POST: post, create a new profile document based on req.Model
     .post((req, res) => {
-      const dbModel = new req.Model(req.body);
-      dbModel.save((err, doc) => {
-        if (err) {
-          return res.status(400).json(err);
-        }
-        res.status(200).json(doc);
-      });
+      if (req.isAuthenticated()) {
+        req.body.userRef = req.user;
+        const dbModel = new req.Model(req.body);
+        dbModel.save((err, doc) => {
+          if (err) {
+            return res.status(400).json(err);
+          }
+          res.status(200).json(doc);
+        });
+      }
     });
   return profileRouter;
 }

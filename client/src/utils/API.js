@@ -26,7 +26,7 @@ const API = {
   },
   // CREATEs a profile in the database
   saveProfile: function (profileType, profileData) {
-    return axios.post("/api/profiles/" + profileType, profileData);
+    return axios.post("/api/profiles/view/" + profileType, profileData);
   },
 };
 

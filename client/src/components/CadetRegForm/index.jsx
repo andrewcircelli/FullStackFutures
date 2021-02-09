@@ -19,6 +19,7 @@ class CadetRegForm extends React.Component {
   };
   saveProfile = (event) => {
     event.preventDefault();
+    console.log(this.state);
     API.saveProfile(this.props.profileType, this.state).then((cadetProfile) => {
       // will need to push this profile doc to logged in user
       console.log("From CadetRegForm.js", cadetProfile);

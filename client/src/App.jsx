@@ -10,22 +10,19 @@ import SignIn from "./components/SignIn";
 
 function App() {
   return (
-    <>
-      <SignUp />
-      <SignIn />
-    </>
-    // <Router>
-    //   <Layout>
-    //     <Switch>
-    //       <Route exact path={"/"}>
-    //         <HeroSection />
-    //       </Route>
-    //       <Route exact path={"/profiles/:profileType"}>
-    //         <Home />
-    //       </Route>
-    //     </Switch>
-    //   </Layout>
-    // </Router>
+    <Router>
+      <Layout>
+        <Switch>
+          <Route exact path={"/"}>
+            <SignIn />
+            <SignUp />
+          </Route>
+          <Route exact path={"/profiles/:profileType"}>
+            <Home />
+          </Route>
+        </Switch>
+      </Layout>
+    </Router>
   );
 }
 

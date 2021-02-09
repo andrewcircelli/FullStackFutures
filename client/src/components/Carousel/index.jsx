@@ -12,20 +12,20 @@ export default class ProfileCarousel extends Component {
       speed: 1000,
       autoplay: true,
       autoplaySpeed: 4000,
-      slidesToShow: 3,
+      slidesToShow: 4,
       slidesToScroll: 1,
       draggable: true,
       centerMode: true,
       centerPadding: "40px",
       swipeToSlide: true,
-      arrows: false,
+      arrows: true,
       accessibility: false,
       responsive: [
         {
           breakpoint: 1024,
           settings: {
             centerPadding: "15px",
-            slidesToShow: 2,
+            slidesToShow: 3,
           },
         },
         {
@@ -39,14 +39,10 @@ export default class ProfileCarousel extends Component {
       ],
     };
     return (
-      <div>
+      <div className="border border-danger">
         <Slider {...settings}>
           {this.props.profiles.map((profile, index) => {
-            return (
-              <>
-                <CardFlip key={index} profile={profile} />
-              </>
-            );
+            return <CardFlip key={index} profile={profile} />;
           })}
         </Slider>
       </div>

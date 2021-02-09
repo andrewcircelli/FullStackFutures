@@ -13,35 +13,41 @@ function router() {
           username,
           password,
         });
-        // console.log("From Auth Routes", dbUser);
+        console.log("From Auth Routes", dbUser);
         // login information stored in a cookie, deletes when server restarts
-        req.login(dbUser, () => {
+        req.logIn(dbUser, () => {
           // redirect to another page after user logs in
-          res.redirect("/api/auth/profile");
+          res.json(dbUser);
         });
       } catch (err) {
         console.log(err);
       }
     })();
   });
-  authRouter
-    .route("/sign-in")
-    .get((req, res) => {
-      res.send("Sign-In Page");
-    })
-    .post(
-      passport.authenticate("local", {
-        successRedirect: "/api/auth/profile",
-        failureRedirect: "/",
-      })
-    );
+  authRouter.route("/sign-in").post(function (req, res, next) {
+    passport.authenticate("local", function (err, user) {
+      if (err) {
+        return next(err);
+      }
+      if (!user) {
+        return res.redirect("/auth/sign-up");
+      }
+      req.logIn(user, function (err) {
+        if (err) {
+          return next(err);
+        }
+        return res.json(user);
+      });
+    })(req, res, next);
+  });
+
   authRouter
     .route("/profile")
     .all((req, res, next) => {
       if (req.user) {
         next();
       } else {
-        res.redirect("/");
+        console.log("user not logged in");
       }
     })
     .get((req, res) => {

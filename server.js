@@ -20,9 +20,10 @@ app.use(morgan("tiny"));
 
 // Sets up the Express app to handle data parsing
 app.use(express.json());
-app.use(express.urlencoded({ extended: false }));
+app.use(express.urlencoded({ extended: true }));
 app.use(cookieParser());
 app.use(session({ secret: "elites" }));
+app.use(express.static("public"));
 
 require("./config/passport.js")(app);
 

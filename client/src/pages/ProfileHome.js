@@ -6,12 +6,8 @@ const ProfileHome = ({ profileType, profiles }) => {
   return (
     <Container fluid>
       <Row>
-        <Col size="md-8">
-          <ProfileCarousel
-            deviceType={"desktop"}
-            profileType={profileType}
-            profiles={profiles}
-          />
+        <Col size="12">
+          <ProfileCarousel profileType={profileType} profiles={profiles} />
         </Col>
       </Row>
     </Container>

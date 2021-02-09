@@ -11,19 +11,18 @@ module.exports = function localStrategy() {
         passwordField: "password",
       },
       // Strategy takes a function
-      (username, password, done) => {
-        (async function findUser() {
-          try {
-            const dbUser = await User.findOne({ username });
-            if (dbUser.password === password) {
-              done(null, dbUser);
-            } else {
-              done(null, false);
-            }
-          } catch (err) {
-            console.log(err);
+      async (username, password, done) => {
+        try {
+          const user = await User.findOne({ username });
+          console.log(user);
+          if (user.password === password) {
+            done(null, user);
+          } else {
+            done(null, false);
           }
-        })();
+        } catch (err) {
+          console.log("Error from Local Strategy", err);
+        }
       }
     )
   );

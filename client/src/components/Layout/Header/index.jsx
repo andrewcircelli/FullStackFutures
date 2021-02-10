@@ -5,7 +5,7 @@ import { menuData } from "../../../static/data/menuData";
 import MenuButton from "../../MenuButton";
 import MenuTooltip from "../../MenuTooltip";
 import logo from "../../../static/images/logos/logo.svg";
-import hamburger from "../../../static/images/icons/hamburger.svg";
+import hamburger from "../../../static/images/icons/home.svg";
 
 export default function Header() {
   const [isOpen, setIsOpen] = useState(false);
@@ -25,7 +25,6 @@ export default function Header() {
       !ref.current.contains(event.target) &&
       !tooltipRef.current.contains(event.target)
     ) {
-      console.log("Document is clicked");
       setIsOpen(false);
     }
   }
@@ -49,7 +48,7 @@ export default function Header() {
       </Link>
       <MenuWrapper count={menuData.length} ref={ref}>
         {menuData.map((item, index) =>
-          item.link === "/account" ? (
+          item.link === "/tool-tip" ? (
             <MenuButton
               key={index}
               item={item}
@@ -59,7 +58,7 @@ export default function Header() {
             <MenuButton item={item} key={index} />
           )
         )}
-        <HamburgerWrapper>
+        {/* <HamburgerWrapper>
           <MenuButton
             item={{
               title: "",
@@ -68,7 +67,7 @@ export default function Header() {
             }}
             onClick={(event) => handleClick(event)}
           />
-        </HamburgerWrapper>
+        </HamburgerWrapper> */}
       </MenuWrapper>
       {/* Wrap it in a div Since, MenuTooltip is a component so you can pass the ref */}
       <div ref={tooltipRef}>

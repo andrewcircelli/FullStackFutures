@@ -1,9 +1,10 @@
 import React from "react";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import Layout from "./components/Layout";
-import Home from "./pages/Home";
+import Reg from "./pages/Reg";
 import GetAuthenticated from "./components/GetAuthenticated";
-import UserProfile from "./pages/UserProfile";
+// import UserProfile from "./pages/UserProfile";
+import GetProfile from "./components/GetProfile";
 import "./App.css";
 
 class App extends React.Component {
@@ -27,7 +28,7 @@ class App extends React.Component {
               {this.state.isSignedIn ? (
                 <>
                   {/* send them to a profiles select page */}
-                  <UserProfile username={this.state.signedInUser} />
+                  <GetProfile username={this.state.signedInUser} />
                 </>
               ) : (
                 <>
@@ -35,9 +36,8 @@ class App extends React.Component {
                 </>
               )}
             </Route>
-            <Route exact path={"/profiles/:profileType"}>
-              <Route exact path={"/dashboard/:user"} component={UserProfile} />
-              <Home />
+            <Route exact path={"/profiles/reg/:profileType"}>
+              <Reg />
             </Route>
           </Switch>
         </Layout>

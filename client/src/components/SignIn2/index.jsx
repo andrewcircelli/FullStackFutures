@@ -1,14 +1,13 @@
 import React from "react";
 import { Form, Button } from "react-bootstrap";
-import {Redirect} from "react-router-dom";
+import { Redirect } from "react-router-dom";
 import API from "../../utils/API";
-
 
 class SignIn extends React.Component {
   state = {
     username: "",
     password: "",
-    dashboard:false
+    dashboard: false,
   };
 
   handleInput = (event) => {
@@ -25,9 +24,9 @@ class SignIn extends React.Component {
       console.log("SignIn", dbUser);
       this.setState({
         // username: dbUser.config.data.username,
-        dashboard: true
-      })
-      this.props.setLoginStatus(this.state.username)
+        dashboard: true,
+      });
+      this.props.setLoginStatus(this.state.username);
       // return <Redirect to = "/dashboard/dbUser">
 
       // </Redirect>
@@ -41,7 +40,6 @@ class SignIn extends React.Component {
   render() {
     return (
       <>
-  
         <Form name="sign-in-form">
           <Form.Group controlId="username">
             <Form.Label>Username</Form.Label>
@@ -64,7 +62,6 @@ class SignIn extends React.Component {
             Sign In!
           </Button>
         </Form>
-      
       </>
     );
   }

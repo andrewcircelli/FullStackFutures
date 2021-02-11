@@ -14,7 +14,7 @@ function HeroSection({ setLoginStatus }) {
     <>
       <Wrapper>
         {/* <ImageContent /> */}
-        {/* <WaveBackground /> */}
+        <WaveBackground />
         <SideBar setLoginStatus={setLoginStatus} />
         <ContentWrapper>
           {/* <MockupAnimation /> */}
@@ -56,7 +56,6 @@ const animation = keyframes`
 `;
 
 const Wrapper = styled.div`
-  height: 100vh;
   overflow: hidden;
   font-family: "Ubuntu", sans-serif;
 `;

@@ -1,18 +1,14 @@
 import React from "react";
 import { Card } from "react-bootstrap";
-import styled from "styled-components";
 
 export function FrontAthleteBody({ profile }) {
   return (
-    <Wrapper>
+    <>
       <Card.Title>{`${profile.firstName} ${profile.lastName}`}</Card.Title>
-      <CardTextWrapper>
       <Card.Text>{profile.position}</Card.Text>
-      </CardTextWrapper>
-    </Wrapper>
+    </>
   );
 }
-
 
 export function FrontStudentBody({ profile }) {
   return (
@@ -31,6 +27,3 @@ export function FrontCadetBody({ profile }) {
     </>
   );
 }
-
-const Wrapper = styled.div``
-const CardTextWrapper = styled.div``

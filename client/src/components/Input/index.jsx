@@ -1,5 +1,6 @@
 import React from "react";
 import styled from "styled-components";
+import { Form } from "react-bootstrap";
 
 const Input = () => {
   return (
@@ -10,7 +11,7 @@ const Input = () => {
   );
 };
 
-const StyledInputWrapper = styled.input`
+const StyledInputWrapper = styled(Form.Control)`
   max-width: 350px;
   min-width: 250px;
   height: 40px;

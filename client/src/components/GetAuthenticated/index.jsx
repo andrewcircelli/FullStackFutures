@@ -1,9 +1,7 @@
 import React, { useState } from "react";
 import styled from "styled-components";
 import { Container, Row, Col } from "../Grid";
-import Input from "../Input";
 import { Form } from "react-bootstrap";
-import SignUpModal from "../SignUpModal";
 import API from "../../utils/API";
 
 function GetAuthenticated({ setLoginStatus }) {

@@ -7,6 +7,7 @@ const User = require("../models/user.model");
 function router() {
   authRouter.route("/sign-up").post((req, res) => {
     const { username, password } = req.body;
+    console.log(username);
     (async function createUser() {
       try {
         const dbUser = await User.create({

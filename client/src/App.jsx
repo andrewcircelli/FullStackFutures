@@ -2,10 +2,10 @@ import React from "react";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import Layout from "./components/Layout";
 import Reg from "./pages/Reg";
-import GetAuthenticated from "./components/GetAuthenticated";
+import Home from "./pages/Home";
+import HeroSection from "./components/HeroSection";
 // import UserProfile from "./pages/UserProfile";
 import GetProfile from "./components/GetProfile";
-import "./App.css";
 
 class App extends React.Component {
   state = {
@@ -27,17 +27,17 @@ class App extends React.Component {
             <Route exact path={"/"}>
               {this.state.isSignedIn ? (
                 <>
-                  {/* send them to a profiles select page */}
                   <GetProfile username={this.state.signedInUser} />
                 </>
               ) : (
-                <>
-                  <GetAuthenticated setLoginStatus={this.setLoginStatus} />
-                </>
+                <HeroSection setLoginStatus={this.setLoginStatus} />
               )}
             </Route>
             <Route exact path={"/profiles/reg/:profileType"}>
               <Reg />
+            </Route>
+            <Route exact path={"/profiles/:profileType"}>
+              <Home />
             </Route>
           </Switch>
         </Layout>

@@ -37,15 +37,3 @@ const Wrapper = styled.div`
       ? "skewY(0) rotate(0) translateY(0)"
       : "skewY(-5deg) rotate(5deg) translateY(-30px)"};
 `;
-
-//NOTES:
-// using the useState hook
-// The first step is to import it.
-// The first variable is the initial state
-// the second variable is used to update the state
-// setting isOpen to false.
-// change isOpen to true when the user clicks on it
-// changing the text depending on the value of isOpen
-// Instead of setting the value to true, simply toggle it
-//  if the value is true and the user clicks on it, isOpen will change to false, and vice-versa
-// use the .map() method to iterate through all the array items in tooltipData.

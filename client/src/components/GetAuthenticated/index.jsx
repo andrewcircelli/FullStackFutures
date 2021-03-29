@@ -23,8 +23,6 @@ function GetAuthenticated({ setLoginStatus }) {
   const sendUser = (event) => {
     event.preventDefault();
     API.sendUser(user).then((dbUser) => {
-      console.log("GetAuth-SendUser", dbUser);
-      // setUser({ username: dbUser.username, password: dbUser.password });
       setLoginStatus(dbUser.data.username);
     });
   };
@@ -33,8 +31,6 @@ function GetAuthenticated({ setLoginStatus }) {
     event.preventDefault();
     console.log(user);
     API.saveUser(user).then((dbUser) => {
-      console.log("SignUpModal-SaveUser", dbUser);
-      // setUser({ username: dbUser.username, password: dbUser.password });
       setLoginStatus(dbUser.data.username);
     });
   };
@@ -45,12 +41,13 @@ function GetAuthenticated({ setLoginStatus }) {
         <Container>
           <Row>
             <Col size="12">
+              <hr></hr>
               <Form.Group controlId="username">
-                <Form.Label>Username</Form.Label>
                 <Form.Control
                   name="username"
                   value={user.username}
                   onChange={handleInput}
+                  placeholder="Username"
                 />
               </Form.Group>
             </Col>
@@ -58,11 +55,12 @@ function GetAuthenticated({ setLoginStatus }) {
           <Row>
             <Col size="12">
               <Form.Group controlId="password">
-                <Form.Label>Password</Form.Label>
                 <Form.Control
                   name="password"
+                  type="password"
                   value={user.password}
                   onChange={handleInput}
+                  placeholder="Password"
                 />
               </Form.Group>
             </Col>
@@ -99,17 +97,9 @@ const FormWrapper = styled.div`
 `;
 
 const CustomForm = styled.form`
-  padding: 0;
-  margin: 0px;
-  width: 100%;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  color: rgb(122, 138, 216);
-  h3 {
-    margin-bottom: 2rem;
-    letter-spacing: 2px;
-  }
+  color: #383838;
+  font-weight: bold;
+  font-size: 15px;
 
   button {
     background-color: none;
@@ -117,6 +107,7 @@ const CustomForm = styled.form`
     max-width: 350px;
     min-width: 250px;
     height: 40px;
+    width: 90px;
     border: none;
     margin: 1rem 0;
     border-radius: 8px;
@@ -125,15 +116,15 @@ const CustomForm = styled.form`
     cursor: pointer;
     transition: all 0.2s ease-in;
     border: 0.5px solid rgba(255, 255, 255, 0.557);
-    background-color: rgba(138, 25, 138, 0.897);
+    background-color: #6d83f2;
     border-radius: 500px;
     box-sizing: border-box;
     overflow: hidden;
     letter-spacing: 2px;
     &:hover {
       transform: translateY(-3px);
-      color: rgb(159, 77, 159);
-      box-shadow: 10px 10px 13px 0px rgb(0, 0, 0);
+      color: #383838;
+      box-shadow: 8px 8px 10px 0px rgb(0, 0, 0);
     }
   }
 `;

@@ -16,9 +16,8 @@ export default function MenuTooltip(props) {
 
 const Wrapper = styled.div`
   position: absolute;
-  top: 60px;
+  top: 80px;
   right: 30px;
-  background: rgba(15, 14, 71, 0.3);
   box-shadow: 0px 50px 100px rgba(0, 0, 0, 0.25),
     inset 0px 0px 0px 0.5px rgba(255, 255, 255, 0.2);
   backdrop-filter: blur(40px);

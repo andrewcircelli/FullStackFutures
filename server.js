@@ -27,14 +27,6 @@ require("./config/passport.js")(app);
 const profileRouter = require("./routes/profile-routes");
 const authRouter = require("./routes/auth-routes");
 
-// app.use("/", (req, res, next) => {
-//   if (req.params !== {}) {
-//     console.log("Req.Params", req.params);
-//     next();
-//   } else {
-//     return;
-//   }
-// });
 app.use("/api/auth", authRouter);
 app.use("/api/profiles", profileRouter);
 
@@ -58,12 +50,15 @@ app.use((err, req, res, next) => {
 });
 
 // Sets up the MongoDB / Mongoose connection
-mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/project3", {
-  useNewUrlParser: true,
-  useUnifiedTopology: true,
-  useCreateIndex: true,
-  useFindAndModify: false,
-});
+mongoose.connect(
+  process.env.MONGODB_URI || "mongodb://localhost/brightfutures",
+  {
+    useNewUrlParser: true,
+    useUnifiedTopology: true,
+    useCreateIndex: true,
+    useFindAndModify: false,
+  }
+);
 const db = mongoose.connection;
 db.on("error", console.error.bind(console, "connection error: "));
 db.once("open", () => {
@@ -73,4 +68,3 @@ db.once("open", () => {
     console.log(`listening on PORT ${chalk.green(PORT)}`);
   });
 });
-

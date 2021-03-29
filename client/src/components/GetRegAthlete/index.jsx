@@ -29,7 +29,6 @@ export default function GetRegAthlete() {
   const saveProfile = (event) => {
     event.preventDefault();
     API.saveProfile("athlete", dbProfile).then((dbProfile) => {
-      console.log("From AthleteRegForm.js", dbProfile);
       // clear the form some how!
     });
   };

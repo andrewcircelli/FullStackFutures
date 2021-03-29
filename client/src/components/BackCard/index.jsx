@@ -1,5 +1,6 @@
 import React from "react";
-import { Card } from "react-bootstrap";
+import styled from "styled-components";
+import { Card, Badge } from "react-bootstrap";
 import {
   BackAthleteBody,
   BackStudentBody,
@@ -8,38 +9,50 @@ import {
 
 export default function BackCard({ profile, flipCard }) {
   return (
-    <Card className="text-center" style={{ width: "18rem" }}>
+    <SCard className="text-center">
       {profile.profileType === "athlete" ? (
         <>
-          <Card.Header as="h5" onClick={flipCard}>
-            Athlete - {profile.sport}
+          <Card.Header as="h5">
+            <Badge variant="secondary"> Athlete - {profile.sport}</Badge>
           </Card.Header>
-          <BackAthleteBody profile={profile} />
+          <Card.Body onClick={flipCard}>
+            <BackAthleteBody profile={profile} />
+          </Card.Body>
           <Card.Footer className="text-muted">
             {`${profile.age}yo | ${profile.height}in | ${profile.weight}lbs`}
           </Card.Footer>
         </>
       ) : profile.profileType === "student" ? (
         <>
-          <Card.Header as="h5" onClick={flipCard}>
-            Student - {profile.university}
+          <Card.Header as="h5">
+            <Badge variant="secondary">Student - {profile.university}</Badge>
           </Card.Header>
-          <BackStudentBody profile={profile} />
+          <Card.Body onClick={flipCard}>
+            <BackStudentBody profile={profile} />
+          </Card.Body>
           <Card.Footer className="text-muted">
             Student Footer (BackCard)
           </Card.Footer>
         </>
       ) : (
         <>
-          <Card.Header as="h5" onClick={flipCard}>
-            Cadet - {profile.branch}
+          <Card.Header as="h5">
+            <Badge variant="secondary">Cadet - {profile.branch}</Badge>
           </Card.Header>
-          <BackCadetBody profile={profile} />
+          <Card.Body onClick={flipCard}>
+            <BackCadetBody profile={profile} />
+          </Card.Body>
           <Card.Footer className="text-muted">
             {`${profile.age}yo | ${profile.height}in | ${profile.weight}lbs`}
           </Card.Footer>
         </>
       )}
-    </Card>
+    </SCard>
   );
 }
+
+const SCard = styled(Card)`
+  width: 500px;
+  height: 500px;
+  margin: 20px;
+`;

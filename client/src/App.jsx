@@ -1,5 +1,5 @@
 import React from "react";
-import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
+import { Route, Switch } from "react-router-dom";
 import Layout from "./components/Layout";
 import Reg from "./pages/Reg";
 import Home from "./pages/Home";
@@ -21,27 +21,25 @@ class App extends React.Component {
   };
   render() {
     return (
-      <Router>
-        <Layout>
-          <Switch>
-            <Route exact path={"/"}>
-              {this.state.isSignedIn ? (
-                <>
-                  <GetProfile username={this.state.signedInUser} />
-                </>
-              ) : (
-                <HeroSection setLoginStatus={this.setLoginStatus} />
-              )}
-            </Route>
-            <Route exact path={"/profiles/reg/:profileType"}>
-              <Reg />
-            </Route>
-            <Route exact path={"/profiles/:profileType"}>
-              <Home />
-            </Route>
-          </Switch>
-        </Layout>
-      </Router>
+      <Layout>
+        <Switch>
+          <Route exact path={"/"}>
+            {this.state.isSignedIn ? (
+              <>
+                <GetProfile username={this.state.signedInUser} />
+              </>
+            ) : (
+              <HeroSection setLoginStatus={this.setLoginStatus} />
+            )}
+          </Route>
+          <Route path={"/profiles/reg/:profileType"}>
+            <Reg />
+          </Route>
+          <Route path={"/profiles/:profileType"}>
+            <Home />
+          </Route>
+        </Switch>
+      </Layout>
     );
   }
 }

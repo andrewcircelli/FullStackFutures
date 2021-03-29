@@ -29,7 +29,8 @@ function router() {
     });
   profileRouter
     .route("/:profileType")
-    // GET: get all (profileType) profile documents in profiles collection
+    // extend express.request to carry db."model" based on profile type
+    // used on any subsequent POST routes to create profile given different schemas
     .all((req, res, next) => {
       const { profileType } = req.params;
       req.profileType = profileType;
@@ -48,7 +49,6 @@ function router() {
     })
     .get((req, res) => {
       const { profileType } = req;
-      console.log("Profile Routes", profileType);
       db.ProfileModel.find({ profileType: profileType }, (err, docs) => {
         if (err) {
           return res.status(400).json(err);

@@ -1,6 +1,3 @@
-// Need to set an object
-// Need to Export it here
-
 export const themes = {
   // Light theme
   light: {
@@ -36,7 +33,7 @@ export const themes = {
   dark: {
     text1: `white`,
     text2: `rgba(255,255,255,0.7)`,
-    backgroundColor: `#1F1F47`,
+    backgroundColor: `#C7D0FF`,
     card: {
       backgroundColor: `rgba(25, 24, 63, 0.98)`,
       boxShadow: `0px 30px 60px rgba(0, 0, 0, 0.25),
@@ -46,18 +43,6 @@ export const themes = {
     cardHover: {
       backgroundColor: `rgba(255, 255, 255, 0.1)`,
       boxShadow: `inset 0px 0px 0px 0.5px rgba(255, 255, 255, 0.2)`,
-    },
-    pricingCard: {
-      backgroundColor: `rgba(31, 31, 71, 0.6)`,
-    },
-    status: {
-      backgroundColor: "rgba(0, 0, 0, 0.2)",
-    },
-    modal: {
-      backgroundColor: `rgba(50, 61, 109, 0.5)`,
-      boxShadow: `0px 50px 100px rgba(0, 0, 0, 0.25),
-        inset 0 0 0 0.5px rgba(255, 255, 255, 0.3)`,
-      backgroundColorFull: `rgba(15, 14, 71, 1)`,
     },
   },
 };

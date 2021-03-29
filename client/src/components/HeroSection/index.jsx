@@ -1,28 +1,18 @@
 import React from "react";
 import styled, { keyframes } from "styled-components";
-import MockupAnimation from "../MockupAnimation";
-import WaveBackground from "../WaveBackground";
-// import PurchaseButton from "../PurchaseButton";
-import ImageContent from "../ImageContent/index";
-import { themes } from "../../styles/ColorStyles";
 import { H1, MediumText } from "../../styles/TextStyles";
 import SideBar from "../SideBar";
-import Footer from "../Footer/";
 
 function HeroSection({ setLoginStatus }) {
   return (
     <>
       <Wrapper>
-        {/* <ImageContent /> */}
-        <WaveBackground />
         <SideBar setLoginStatus={setLoginStatus} />
         <ContentWrapper>
-          {/* <MockupAnimation /> */}
           <TextWrapper>
             <Title>
               <Description>YOU DREAM CAREER, OUR GOALS </Description>
             </Title>
-            {/* <PurchaseButton title="Welcome!" subtitle="Create An Account" /> */}
             <TextContainer>
               <Text1>
                 Just like in our team, being motivated at work is crucial for
@@ -43,7 +33,6 @@ function HeroSection({ setLoginStatus }) {
           </TextWrapper>
         </ContentWrapper>
       </Wrapper>
-      <Footer />
     </>
   );
 }
@@ -119,13 +108,13 @@ const TextContainer = styled.div`
     transition-delay: 0.5s;
   }
   p {
-    color: rgb(255, 255, 255);
+    color: #6a98f0;
     text-align: center;
     align-items: center;
   }
   span {
     display: center;
-    color: rgba(0, 0, 0, 0.5);
+    color: #6a98f0;
     font-weight: 500;
     font-size: 40px;
   }
@@ -150,8 +139,8 @@ const Text2 = styled.p`
 `;
 
 const Title = styled(H1)`
-  color: ${themes.dark.text1};
-  background: linear-gradient(180deg, #efe8ef 0%, rgb(199, 208, 255) 100%);
+  color: #383838;
+  background: #6a98f0;
   background-clip: text;
   -webkit-background-clip: text;
   color: transparent;

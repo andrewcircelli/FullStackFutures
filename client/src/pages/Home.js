@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from "react";
-// import { Container } from "../components/Grid";
 import SpinnerPage from "../components/Spinner";
 import { useParams } from "react-router-dom";
 import AthleteHome from "./AthleteHome";
@@ -53,11 +52,8 @@ const Home = (props) => {
       ) : profileType === "cadet" ? (
         <CadetHome profileType={profileType} profiles={profiles} />
       ) : (
-        <div className="border border-info">
-          <ProfileHome profileType={"all"} profiles={profiles} />
-        </div>
+        <ProfileHome profileType={"all"} profiles={profiles} />
       )}
-      }
     </div>
   );
 };

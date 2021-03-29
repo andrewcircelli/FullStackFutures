@@ -12,7 +12,7 @@ const Sidebar = ({ setLoginStatus }) => {
           <CircleAnimation />
           <h3>
             K-12 <br />
-            <span>RISING ELITES</span>
+            <span>Full Stack Futures</span>
           </h3>
         </LogoWrapper>
         <GetAuthenticated setLoginStatus={setLoginStatus} />
@@ -26,14 +26,16 @@ const Sidebar = ({ setLoginStatus }) => {
 };
 
 const Wrapper = styled.div`
-  width: 10%;
+  width: 20%;
   top: 0;
   left: 0;
   padding: 0;
   margin: 0;
   position: absolute;
-  height: 105vh;
+  height: 95vh;
   margin-left: 30px;
+  margin-top: 30px;
+  margin-bottom: 30px;
   z-index: 1000;
 `;
 
@@ -53,27 +55,6 @@ const Container = styled.div`
     position: absolute;
     padding: 0;
   }
-  h4 {
-    color: rgba(98, 209, 240, 0.852);
-    font-weight: bold;
-    font-size: 20px;
-    margin-top: 2rem;
-    flex-direction: column;
-    justify-content: space-evenly;
-    align-items: center;
-    background-color: rgba(255, 255, 255, 0.044);
-    span {
-      color: rgb(145, 50, 139);
-      cursor: pointer;
-      flex-direction: column;
-      justify-content: space-evenly;
-      align-items: center;
-    }
-    :hover span {
-      color: rgba(196, 139, 196, 0.692);
-      background: none;
-    }
-  }
 `;
 
 const LogoWrapper = styled.div`
@@ -89,7 +70,7 @@ const LogoWrapper = styled.div`
   padding: 0;
   margin: 0;
   h3 {
-    color: rgb(199, 208, 255);
+    color: #6d83f2;
     text-align: center;
     font-size: 50px;
     letter-spacing: 5px;
@@ -99,7 +80,7 @@ const LogoWrapper = styled.div`
     align-items: center;
   }
   span {
-    color: rgb(255, 255, 255);
+    color: #6d83f2;
     font-weight: 500;
     font-size: 40px;
     flex-direction: column;
@@ -112,33 +93,9 @@ const Terms = styled.p`
   padding: 0 1rem;
   text-align: center;
   font-size: 20px;
-  color: rgba(255, 255, 255, 0.616);
+  color: #6d83f2;
   font-weight: 300;
   letter-spacing: 4px;
-`;
-
-const H4Wrapper = styled.div`
-  padding: 0;
-  margin: 0;
-  width: 100%;
-  background-color: rgba(255, 255, 255, 0.907);
-  box-shadow: 20px 20px 10px -5px rgba(0, 0, 0, 0.39);
-  display: flex;
-  flex-direction: column;
-  justify-content: space-evenly;
-  align-items: center;
-  border: 0.5px solid rgba(0, 0, 0, 0.516);
-  border-radius: 500px;
-  overflow: hidden;
-  span {
-    padding: 0;
-    margin: 0;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-evenly;
-    align-items: center;
-    background: none;
-  }
 `;
 
 export default Sidebar;

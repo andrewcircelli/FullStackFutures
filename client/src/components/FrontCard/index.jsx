@@ -6,24 +6,22 @@ import {
   FrontStudentBody,
   FrontCadetBody,
 } from "../FrontCardBody";
-import Sport1 from "../../static/images/pictures/Sport1.svg";
-import Military1 from "../../static/images/pictures/Military1.svg";
-import Student1 from "../../static/images/pictures/Student1.svg";
+import athlete from "./imgs/athlete.png";
+import cadet from "./imgs/cadet.png";
+import student from "./imgs/student.png";
 
 export default function FrontCard({ profile, flipCard }) {
   return (
     <Wrapper>
-      <Card className="text-center" style={{ width: "18rem" }}>
+      <SCard className="text-center">
         {profile.profileType === "athlete" ? (
           <>
-            <Header as="h5">
+            <Card.Header as="h5">
               <Badge variant="secondary"> Athlete - {profile.sport}</Badge>
-            </Header>
+            </Card.Header>
 
             <Image>
-              {/* <div className="Sport1" > */}
-              <Card.Img variant="top" src={Sport1} onClick={flipCard} />
-              {/* </div> */}
+              <Card.Img variant="top" src={athlete} onClick={flipCard} />
             </Image>
 
             <Card.Body>
@@ -41,9 +39,7 @@ export default function FrontCard({ profile, flipCard }) {
             </Card.Header>
 
             <Image>
-              {/* <div className="Sport1" > */}
-              <Card.Img variant="top" src={Student1} onClick={flipCard} />
-              {/* </div> */}
+              <Card.Img variant="top" src={student} onClick={flipCard} />
             </Image>
 
             <Card.Body>
@@ -61,9 +57,7 @@ export default function FrontCard({ profile, flipCard }) {
             </Card.Header>
 
             <Image>
-              {/* <div className="Sport1" > */}
-              <Card.Img variant="top" src={Military1} onClick={flipCard} />
-              {/* </div> */}
+              <Card.Img variant="top" src={cadet} onClick={flipCard} />
             </Image>
 
             <Card.Body>
@@ -75,7 +69,7 @@ export default function FrontCard({ profile, flipCard }) {
             </Card.Footer>
           </>
         )}
-      </Card>
+      </SCard>
     </Wrapper>
   );
 }
@@ -86,23 +80,25 @@ const Wrapper = styled.div`
   padding: 0;
   display: inline-block;
   position: center;
-  border: 0.5px solid rgba(255, 255, 255, 0.2);
-  background-color: rgba(255, 255, 255, 0.2);
+  border: 1px solid rgb(248, 248, 248);
   backdrop-filter: blur(27.3844px);
   border-radius: 14px;
   box-sizing: border-box;
   overflow: hidden;
 `;
 
-const Header = styled.div``;
+const SCard = styled(Card)`
+  width: 500px;
+  height: 500px;
+`;
+
 const Image = styled.div`
   width: 80%;
   margin-left: 30px;
   position: center;
   justify-content: center;
   align-items: center;
-  border: 0.5px solid rgba(255, 255, 255, 0.2);
-  background-color: rgba(255, 255, 255, 0.2);
+  background-color: rgb(248, 248, 248);
   backdrop-filter: blur(27.3844px);
   border-radius: 500px;
   box-sizing: border-box;

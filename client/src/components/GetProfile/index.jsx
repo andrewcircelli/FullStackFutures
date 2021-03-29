@@ -16,21 +16,21 @@ export default function GetProfile({ username }) {
             <FaUserGraduate className="svg-inline--fa fa-w-16 svg" />
           </a>
           <h3 className="Card_CardTitle">Academic Profile</h3>
-          <p className="Card_CardText">Card Text</p>
+          <p className="Card_CardText">Hit The Books</p>
         </div>
         <div className="Card">
           <a href="/profiles/reg/athlete" className="Card_CardIcon">
             <FaRunning className="svg-inline--fa fa-w-16 svg" />
           </a>
           <h3 className="Card_CardTitle">Athlete Profile</h3>
-          <p className="Card_CardText">Card Text</p>
+          <p className="Card_CardText">Go All The Way</p>
         </div>
         <div className="Card">
           <a href="/profiles/reg/cadet" className="Card_CardIcon">
             <FaMedal className="svg-inline--fa fa-w-16 svg" />
           </a>
           <h3 className="Card_CardTitle">Military Profile</h3>
-          <p className="Card_CardText">Card Text</p>
+          <p className="Card_CardText">Serve Your Country</p>
         </div>
       </div>
     </>

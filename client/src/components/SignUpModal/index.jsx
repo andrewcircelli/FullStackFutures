@@ -22,8 +22,6 @@ export default function SignUpModal(props) {
     event.preventDefault();
     console.log(user);
     API.saveUser(user).then((dbUser) => {
-      console.log("SignUpModal-SaveUser", dbUser);
-      // setUser({ username: dbUser.username, password: dbUser.password });
       setLoginStatus(dbUser.data.username);
     });
   };
